@@ -1,0 +1,54 @@
+# IntelliJ
+.idea/*
+!.idea/inspectionProfiles/
+!.idea/dictionaries/
+!.idea/codeStyles/
+!.idea/modules.xml
+!.idea/*.iml
+!.idea/README.md
+
+# MacOS
+.DS_Store
+
+# Node
+.yarn/*
+yarn.lock
+.pnp.*
+node_modules
+
+package-lock.json
+
+# debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# coverage
+coverage
+
+# typescript
+tsconfig.tsbuildinfo
+tsconfig.build.tsbuildinfo
+
+# turborepo
+*.tgz
+.turbo
+
+# dist
+*.tar
+build
+dist
+.next
+.contented
+
+# generated code
+generated
+
+# hardhat generated
+typechain-types
+cache
+artifacts
+
+# Platforms
+.vercel
