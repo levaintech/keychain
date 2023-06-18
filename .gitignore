@@ -53,7 +53,7 @@ artifacts
 .vercel
 
 # Expo
-.expo/
+app/.expo/
 npm-debug.*
 *.jks
 *.p8
