@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "keychain",
-    "slug": "keychain",
+    "name": "Levain Keychain",
+    "slug": "levain-keychain",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -11,9 +11,7 @@
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },
@@ -25,6 +23,12 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
-    }
+    },
+    "extra": {
+      "eas": {
+        "projectId": "538ec1e8-a11b-4465-acfa-26b5df238331"
+      }
+    },
+    "owner": "levain"
   }
 }

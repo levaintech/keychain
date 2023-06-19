@@ -1,0 +1,8 @@
+.husky
+.idea
+*.d.ts
+*.d.ts.map
+*.js
+*.js.map
+yarn.lock
+.contented

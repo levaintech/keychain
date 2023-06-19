@@ -1,13 +1,34 @@
 {
-  "name": "@levaintech/keychain-app",
-  "private": true,
+  "name": "@levain-keychain/app",
   "version": "1.0.0",
+  "private": true,
   "main": "AppEntry.js",
   "scripts": {
+    "lint": "eslint .",
     "start": "expo start",
-    "android": "expo start --android",
-    "ios": "expo start --ios",
-    "web": "expo start --web"
+    "start:android": "expo start --android",
+    "start:ios": "expo start --ios",
+    "start:web": "expo start --web"
+  },
+  "lint-staged": {
+    "*": [
+      "prettier --write --ignore-unknown"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix",
+      "prettier --write"
+    ]
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": [
+      "@levain-keychain"
+    ],
+    "ignorePatterns": [
+      "babel.config.js"
+    ]
   },
   "dependencies": {
     "@babel/core": "^7.20.0",
@@ -16,9 +37,11 @@
     "expo-status-bar": "~1.4.4",
     "react": "18.2.0",
     "react-native": "0.71.3",
-    "typescript": "^4.9.4"
+    "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@levain-keychain/eslint-config": "0.0.0",
+    "eas-cli": "^3.13.3",
     "expo-cli": "^6.3.8"
   }
 }
