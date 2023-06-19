@@ -21,6 +21,16 @@
     },
     {
       "matchPackageNames": [
+        "expo",
+        "@babel/core",
+        "@types/react",
+        "typescript"
+      ],
+      "groupName": "yarn expo-cli upgrade",
+      "enabled": false
+    },
+    {
+      "matchPackageNames": [
         "@expo/vector-icons",
         "@react-native-async-storage/async-storage",
         "@react-native-community/datetimepicker",
@@ -125,7 +135,7 @@
         "@shopify/flash-list",
         "@sentry/react-native"
       ],
-      "groupName": "expo-sdk",
+      "groupName": "https://github.com/expo/expo/blob/main/packages/expo/bundledNativeModules.json",
       "enabled": false
     }
   ]

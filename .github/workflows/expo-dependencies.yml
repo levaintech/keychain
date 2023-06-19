@@ -22,6 +22,8 @@ jobs:
       - run: yarn install --frozen-lockfile
 
       - run: yarn expo-cli upgrade
+        # https://github.com/expo/expo/blob/main/packages/expo/bundledNativeModules.json
+        # console.log(JSON.stringify(Object.keys(JSON.parse(require('fs').readFileSync('./bundledNativeModules.json', 'utf8')))))
         working-directory: ./app
 
       - name: Create Pull Request
