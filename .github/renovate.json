@@ -125,7 +125,8 @@
         "@shopify/flash-list",
         "@sentry/react-native"
       ],
-      "groupName": "expo-sdk"
+      "groupName": "expo-sdk",
+      "enabled": false
     }
   ]
 }
