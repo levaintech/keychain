@@ -4,7 +4,7 @@
   "private": true,
   "main": "index.js",
   "dependencies": {
-    "@stickyjs/eslint-config": "1.0.1",
+    "@stickyjs/eslint-config": "1.1.1",
     "eslint-config-universe": "11.2.0"
   }
 }
