@@ -23,5 +23,6 @@ version-resolver:
       - 'kind/feature'
   default: patch
 prerelease: false
+version-template: "$MAJOR.0.0"
 template: |
   $CHANGES
