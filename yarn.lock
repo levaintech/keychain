@@ -2480,10 +2480,10 @@
     eslint-plugin-simple-import-sort "^10.0.0"
     eslint-plugin-unused-imports "^2.0.0"
 
-"@stickyjs/prettier@1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@stickyjs/prettier/-/prettier-1.0.1.tgz#2379c458d9ebc3779a2cc8c0fe488656fbc5e12f"
-  integrity sha512-SucNSLq7SZOG/P1EVXYXGQ2H4qUSGCq3XzUAeGpMEZApViJ8BdnOu0rtbLJmr6aLDvjKVP8M5Adg2UqP3Ss1lQ==
+"@stickyjs/prettier@1.1.1":
+  version "1.1.1"
+  resolved "https://registry.yarnpkg.com/@stickyjs/prettier/-/prettier-1.1.1.tgz#9ed58c3d268a36fd5e372a5cacaf829c9bab0504"
+  integrity sha512-5hKqKbI/mUx1uk/iKknlxjO2uKWzCZ5x8T15QtJGdH8in/bvJP7uycbonVvnnVqCNrxzpyka1QWN9VcPTQNVDA==
   dependencies:
     husky "^8.0.3"
     lint-staged "^13.2.2"
