@@ -9,8 +9,8 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchPackagePatterns": ["^@birthdayresearch/sticky", "^@birthdayresearch/eslint-config"],
-      "groupName": "@birthdayresearch/sticky"
+      "matchPackagePatterns": ["^@stickyjs/"],
+      "groupName": "@levaintech/sticky"
     },
     {
       "matchPackageNames": ["expo", "@babel/core", "@types/react", "typescript"],
