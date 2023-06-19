@@ -1,0 +1,38 @@
+name: Expo Dependencies
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *'
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+
+      - run: corepack enable yarn
+
+      - uses: actions/setup-node@64ed1c7eab4cce3362f8c340dee64e5eaeef8f7c # v3.6.0
+        with:
+          node-version-file: '.nvmrc'
+          cache: yarn
+
+      - run: yarn install --frozen-lockfile
+
+      - run: yarn expo-cli upgrade
+        working-directory: ./app
+
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@d7db273d6c7206ba99224e659c982ae34a1025e3 # v4.2.1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          commit-message: 'bump(deps): `expo-cli upgrade` dependencies'
+          committer: Levain Keychain Bot <github-actions[bot]@users.noreply.github.com>
+          author: Levain Keychain Bot <github-actions[bot]@users.noreply.github.com>
+          title: 'bump(deps): `expo-cli upgrade` dependencies'
+          body: |
+            #### What this PR does / why we need it:
+            Bump expo dependencies to newest release with `expo-cli upgrade`.
+          branch: github-actions/expo-deps
