@@ -1,0 +1,10 @@
+{
+  "name": "@levain-keychain/eslint-config",
+  "version": "0.0.0",
+  "private": true,
+  "main": "index.js",
+  "dependencies": {
+    "@stickyjs/eslint-config": "1.0.1",
+    "eslint-config-universe": "11.2.0"
+  }
+}

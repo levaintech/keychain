@@ -1,10 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": [
-    "config:base",
-    "helpers:pinGitHubActionDigests",
-    ":semanticCommitTypeAll(bump)"
-  ],
+  "extends": ["config:base", "helpers:pinGitHubActionDigests", ":semanticCommitTypeAll(bump)"],
   "dependencyDashboard": true,
   "dependencyDashboardAutoclose": false,
   "major": {
@@ -13,19 +9,11 @@
   "rangeStrategy": "bump",
   "packageRules": [
     {
-      "matchPackagePatterns": [
-        "^@birthdayresearch/sticky",
-        "^@birthdayresearch/eslint-config"
-      ],
+      "matchPackagePatterns": ["^@birthdayresearch/sticky", "^@birthdayresearch/eslint-config"],
       "groupName": "@birthdayresearch/sticky"
     },
     {
-      "matchPackageNames": [
-        "expo",
-        "@babel/core",
-        "@types/react",
-        "typescript"
-      ],
+      "matchPackageNames": ["expo", "@babel/core", "@types/react", "typescript"],
       "groupName": "yarn expo-cli upgrade",
       "enabled": false
     },
