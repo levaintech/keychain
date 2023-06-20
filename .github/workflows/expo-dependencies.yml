@@ -39,10 +39,11 @@ jobs:
         with:
           token: ${{ steps.app_token.outputs.token }}
           commit-message: 'bump(deps): `expo-cli upgrade` dependencies'
-          committer: Levain Keychain Bot <349640+github-actions[bot]@users.noreply.github.com>
-          author: Levain Keychain Bot <349640+github-actions[bot]@users.noreply.github.com>
+          committer: Keychain Bot <githubapp+349640@users.noreply.github.com>
+          author: Keychain Bot <githubapp+349640@users.noreply.github.com>
           title: 'bump(deps): `expo-cli upgrade` dependencies'
           body: |
             #### What this PR does / why we need it:
-            Bump expo dependencies to newest release with `expo-cli upgrade`.
+
+            Bump expo dependencies to newest release with `yarn expo-cli upgrade`, this command also fixes `./app/package.json` and `./app/app.json` files to patch any non-compliant dependencies.
           branch: keychain-bot/expo-deps
