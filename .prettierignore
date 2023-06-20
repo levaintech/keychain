@@ -6,3 +6,5 @@
 *.js.map
 yarn.lock
 .contented
+.expo
+.turbo
