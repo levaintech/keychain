@@ -31,7 +31,7 @@ jobs:
       - id: app_token
         uses: tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92 # v1.8.0
         with:
-          app_id: ${{ variables.KEYCHAIN_BOT_APP_ID }}
+          app_id: ${{ vars.KEYCHAIN_BOT_APP_ID }}
           private_key: ${{ secrets.KEYCHAIN_BOT_PRIVATE_KEY }}
 
       - name: Create Pull Request
@@ -45,4 +45,4 @@ jobs:
           body: |
             #### What this PR does / why we need it:
             Bump expo dependencies to newest release with `expo-cli upgrade`.
-          branch: github-actions/expo-deps
+          branch: keychain-bot/expo-deps
