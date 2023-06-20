@@ -1,5 +1,6 @@
 {
   "expo": {
+    "scheme": "levain-keychain",
     "name": "Levain Keychain",
     "slug": "levain-keychain",
     "version": "1.0.0",
@@ -22,6 +23,7 @@
       }
     },
     "web": {
+      "bundler": "metro",
       "favicon": "./assets/favicon.png"
     },
     "extra": {
