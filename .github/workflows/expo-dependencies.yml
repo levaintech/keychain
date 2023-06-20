@@ -6,8 +6,7 @@ on:
     - cron: '0 0 * * *'
 
 permissions:
-  contents: write
-  pull-requests: write
+  contents: read
 
 jobs:
   Upgrade:
@@ -29,13 +28,19 @@ jobs:
         # console.log(JSON.stringify(Object.keys(JSON.parse(require('fs').readFileSync('./bundledNativeModules.json', 'utf8')))))
         working-directory: ./app
 
+      - id: app_token
+        uses: tibdex/github-app-token@b62528385c34dbc9f38e5f4225ac829252d1ea92 # v1.8.0
+        with:
+          app_id: ${{ variables.KEYCHAIN_BOT_APP_ID }}
+          private_key: ${{ secrets.KEYCHAIN_BOT_PRIVATE_KEY }}
+
       - name: Create Pull Request
         uses: peter-evans/create-pull-request@153407881ec5c347639a548ade7d8ad1d6740e38 # v5.0.2
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ steps.app_token.outputs.token }}
           commit-message: 'bump(deps): `expo-cli upgrade` dependencies'
-          committer: Levain Keychain Bot <github-actions[bot]@users.noreply.github.com>
-          author: Levain Keychain Bot <github-actions[bot]@users.noreply.github.com>
+          committer: Levain Keychain Bot <349640+github-actions[bot]@users.noreply.github.com>
+          author: Levain Keychain Bot <349640+github-actions[bot]@users.noreply.github.com>
           title: 'bump(deps): `expo-cli upgrade` dependencies'
           body: |
             #### What this PR does / why we need it:
