@@ -1242,10 +1242,10 @@
   resolved "https://registry.yarnpkg.com/@expo/apple-utils/-/apple-utils-1.0.0.tgz#1c8d1a4db674d0469777a13402afe6fffe171263"
   integrity sha512-V8gMy1C63oAYlvkSjhfGYOET7sOmRIUAYv/wVcKJZiVAMZ5MQ2geeXCpLGC4+vuOQe2Hs3+qAgl4y0/b8OUO+A==
 
-"@expo/apple-utils@1.2.0":
-  version "1.2.0"
-  resolved "https://registry.yarnpkg.com/@expo/apple-utils/-/apple-utils-1.2.0.tgz#227d118089a4645b076162f3b513dfc68763ca21"
-  integrity sha512-MotvQqu8CNVlnl9nsISobXDjEzSMfT7U5Zk+1rhOFoJhaZhlEkARxumUFUgH6cYnK7J2mMd3YxM+G769arkEKQ==
+"@expo/apple-utils@1.3.1":
+  version "1.3.1"
+  resolved "https://registry.yarnpkg.com/@expo/apple-utils/-/apple-utils-1.3.1.tgz#99a2627c167af138722af9806a09a35f87115a39"
+  integrity sha512-ADPHXIpTWlt9tIg9yhwyuxQ6UMICWMfHgoCE1v8zzyYsa3BcKvawgkAGApYNxp2IYUKiNMqRYzViEKgq+Svk3w==
 
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
@@ -1618,12 +1618,13 @@
     json5 "^2.2.2"
     write-file-atomic "^2.3.0"
 
-"@expo/logger@1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@expo/logger/-/logger-1.0.13.tgz#f9d02d76867aaaa7e33b30dc5a493202da5d5414"
-  integrity sha512-x1dp47CCR/mohJcYhg1cv17nDP2ih5MqQcW4CJL02GpNYPlvWSR5V5203kmOdYdCWq2Rs1j45Yo9VmpS2dxSfw==
+"@expo/logger@1.0.21":
+  version "1.0.21"
+  resolved "https://registry.yarnpkg.com/@expo/logger/-/logger-1.0.21.tgz#9271b52b8e27159cbbe3385b9a01fca3317b37c2"
+  integrity sha512-Vz+LHDGWUfowAwL10nBKqxrMYvO4qdZ8hLKcqUYc5mXBt+jmv7RP+8fcsMIejJEMWmYC2meO5eeCMLKKhEIgMA==
   dependencies:
-    "@expo/bunyan" "^4.0.0"
+    "@types/bunyan" "^1.8.8"
+    bunyan "^1.8.15"
 
 "@expo/metro-config@~0.6.0":
   version "0.6.0"
@@ -1868,12 +1869,12 @@
   dependencies:
     cross-spawn "^7.0.3"
 
-"@expo/steps@1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@expo/steps/-/steps-1.0.13.tgz#97d448055a8fda8c1e04b2c7c95e2e9cfae3820e"
-  integrity sha512-Hf8VFgwaFsvIb9/8r02/RO5eb1gDUSVyBFgBYVb3iMJvjoZXv74+mJllbh3x1EO28ai68vcEtp8uZ8Su2sLuwg==
+"@expo/steps@1.0.23":
+  version "1.0.23"
+  resolved "https://registry.yarnpkg.com/@expo/steps/-/steps-1.0.23.tgz#a996244be55ae939636a00fdc27c9922bb4f0c42"
+  integrity sha512-H6rW49Dje0O/EDamhpbiYwpVltWM+057Exd7RFz8pzmPnkIAYHMXOErIftl3P79LM+ydWe5WWLX92cYU5uCFgA==
   dependencies:
-    "@expo/logger" "1.0.13"
+    "@expo/logger" "1.0.21"
     "@expo/spawn-async" "^1.7.0"
     arg "^5.0.2"
     joi "^17.7.0"
@@ -2563,6 +2564,13 @@
   version "3.5.10"
   resolved "https://registry.yarnpkg.com/@types/bonjour/-/bonjour-3.5.10.tgz#0f6aadfe00ea414edc86f5d106357cda9701e275"
   integrity sha512-p7ienRMiS41Nu2/igbJxxLDWrSZ0WxM8UQgCeO9KhoVF7cOVFkrKsiDr1EsJIla8vV3oEEjGcz11jc5yimhzZw==
+  dependencies:
+    "@types/node" "*"
+
+"@types/bunyan@^1.8.8":
+  version "1.8.8"
+  resolved "https://registry.yarnpkg.com/@types/bunyan/-/bunyan-1.8.8.tgz#8d6d33f090f37c07e2a80af30ae728450a101008"
+  integrity sha512-Cblq+Yydg3u+sGiz2mjHjC5MPmdjY+No4qvHrF+BUhblsmSfMvsHLbOG62tPbonsqBj6sbWv1LHcsoe5Jw+/Ow==
   dependencies:
     "@types/node" "*"
 
@@ -3922,6 +3930,16 @@ bundle-name@^3.0.0:
   dependencies:
     run-applescript "^5.0.0"
 
+bunyan@^1.8.15:
+  version "1.8.15"
+  resolved "https://registry.yarnpkg.com/bunyan/-/bunyan-1.8.15.tgz#8ce34ca908a17d0776576ca1b2f6cbd916e93b46"
+  integrity sha512-0tECWShh6wUysgucJcBAoYegf3JJoZWibxdqhTm7OHPeT42qdjkZ29QCMcKwbgU1kiH+auSIasNRXMLWXafXig==
+  optionalDependencies:
+    dtrace-provider "~0.8"
+    moment "^2.19.3"
+    mv "~2"
+    safe-json-stringify "~1"
+
 bytes@3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/bytes/-/bytes-3.0.0.tgz#d32815404d689699f85a4ea4fa8755dd13a96048"
@@ -5123,17 +5141,24 @@ dotenv@16.0.3:
   resolved "https://registry.yarnpkg.com/dotenv/-/dotenv-16.0.3.tgz#115aec42bac5053db3c456db30cc243a5a836a07"
   integrity sha512-7GO6HghkA5fYG9TYnNxi14/7K9f5occMlp3zXAuSxn7CKCxt9xbNWG7yF8hTCSUchlfWSe3uLmlPfigevRItzQ==
 
+dtrace-provider@~0.8:
+  version "0.8.8"
+  resolved "https://registry.yarnpkg.com/dtrace-provider/-/dtrace-provider-0.8.8.tgz#2996d5490c37e1347be263b423ed7b297fb0d97e"
+  integrity sha512-b7Z7cNtHPhH9EJhNNbbeqTcXB8LGFFZhq1PGgEvpeHlzd36bhbdTWoE/Ba/YguqpBSlAPKnARWhVlhunCMwfxg==
+  dependencies:
+    nan "^2.14.0"
+
 duplexer3@^0.1.4:
   version "0.1.5"
   resolved "https://registry.yarnpkg.com/duplexer3/-/duplexer3-0.1.5.tgz#0b5e4d7bad5de8901ea4440624c8e1d20099217e"
   integrity sha512-1A8za6ws41LQgv9HrE/66jyC5yuSjQ3L/KOpFtoBilsAK2iA2wuS5rTt1OCzIvtS2V7nVmedsUU+DGRcjBmOYA==
 
-eas-cli@^3.13.3:
-  version "3.13.3"
-  resolved "https://registry.yarnpkg.com/eas-cli/-/eas-cli-3.13.3.tgz#d72539f95b5c4596cdd577b208904c4c0e288b7b"
-  integrity sha512-jCtwVye8dVIaf0aRS8har4uclDuJvvYR0mOJfxmaB2bmx9iZ+OzgEQfv6sVliKXyGFJq3apEtIHBR2iHNneseA==
+eas-cli@^3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/eas-cli/-/eas-cli-3.14.0.tgz#0ac477b8b5f66243185965facd59acee551a66ad"
+  integrity sha512-ymDgGDWbrQ/AqM84WQNCL3KePjut12+HQ80F/8SSZB66Tkii1aGWePY6v7ByfrbGqGTLaLW9IUBIUOVBfab/Ug==
   dependencies:
-    "@expo/apple-utils" "1.2.0"
+    "@expo/apple-utils" "1.3.1"
     "@expo/code-signing-certificates" "0.0.5"
     "@expo/config" "7.0.3"
     "@expo/config-plugins" "6.0.2"
@@ -5152,7 +5177,7 @@ eas-cli@^3.13.3:
     "@expo/results" "1.0.0"
     "@expo/rudder-sdk-node" "1.1.1"
     "@expo/spawn-async" "1.7.0"
-    "@expo/steps" "1.0.13"
+    "@expo/steps" "1.0.23"
     "@expo/timeago.js" "1.0.0"
     "@oclif/core" "1.23.2"
     "@oclif/plugin-autocomplete" "1.3.10"
@@ -5172,6 +5197,7 @@ eas-cli@^3.13.3:
     fast-glob "3.2.12"
     figures "3.2.0"
     form-data "4.0.0"
+    freeport-async "2.0.0"
     fs-extra "10.1.0"
     getenv "1.0.0"
     gradle-to-js "2.0.1"
@@ -8929,6 +8955,11 @@ mkdirp@^1.0.3, mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
+moment@^2.19.3:
+  version "2.29.4"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.29.4.tgz#3dbe052889fe7c1b2ed966fcb3a77328964ef108"
+  integrity sha512-5LC9SOxjSc2HF6vO2CyuTDNivEdoz2IvyJJGj6X8DJ0eFyfszE0QiEd+iXmBvUP3WHxSjFH/vIsA0EN00cgr8w==
+
 ms@2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
@@ -8974,6 +9005,11 @@ mz@^2.7.0:
     any-promise "^1.0.0"
     object-assign "^4.0.1"
     thenify-all "^1.0.0"
+
+nan@^2.14.0:
+  version "2.17.0"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.17.0.tgz#c0150a2368a182f033e9aa5195ec76ea41a199cb"
+  integrity sha512-2ZTgtl0nJsO0KQCjEpxcIr5D+Yv90plTitZt9JBfQvVJDS5seMl3FOvsh3+9CoYWXf/1l5OaZzzF6nDm4cagaQ==
 
 nanoid@3.3.4:
   version "3.3.4"

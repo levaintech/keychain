@@ -43,7 +43,7 @@
   },
   "devDependencies": {
     "@levain-keychain/eslint-config": "0.0.0",
-    "eas-cli": "^3.13.3",
+    "eas-cli": "^3.14.0",
     "expo-cli": "^6.3.8",
     "tailwindcss": "^3.3.2"
   }
