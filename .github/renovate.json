@@ -13,6 +13,10 @@
       "groupName": "@levaintech/sticky"
     },
     {
+      "matchPackagePatterns": ["^metro$", "^metro-.+"],
+      "groupName": "facebook/metro"
+    },
+    {
       "matchPackageNames": ["expo", "@babel/core", "@types/react", "typescript"],
       "groupName": "yarn expo-cli upgrade",
       "enabled": false
