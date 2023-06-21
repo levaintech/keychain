@@ -28,8 +28,8 @@
     ]
   },
   "resolutions": {
-    "metro": "0.76.6",
-    "metro-resolver": "0.76.6"
+    "metro": "0.76.7",
+    "metro-resolver": "0.76.7"
   },
   "dependencies": {
     "@babel/core": "^7.20.0",
