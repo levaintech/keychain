@@ -18,8 +18,10 @@ categories:
 change-template: '- $TITLE @$AUTHOR (#$NUMBER)'
 change-title-escapes: '\<*_&'
 version-resolver:
+  major:
+    labels:
+      - 'kind/feature'
   default: major
 prerelease: false
-version-template: '$MAJOR.0.0'
 template: |
   $CHANGES
