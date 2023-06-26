@@ -2069,10 +2069,10 @@
   dependencies:
     "@sinonjs/commons" "^3.0.0"
 
-"@stickyjs/eslint-config@1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@stickyjs/eslint-config/-/eslint-config-1.1.2.tgz#6a4b2f169279b9bbbb39bea1400b3028cddfb6dc"
-  integrity sha512-BIg0n87G99BBRChAmwU1TNOR3yQ5gj8fENPeiXaS5Hr4Qpt5SE/h1b5lgBQfBbWxCIO169J30NIAVdxRP4CLjg==
+"@stickyjs/eslint-config@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@stickyjs/eslint-config/-/eslint-config-1.2.0.tgz#cd36d2fcaf29b576995dfec8b5c8ea192f4e9a58"
+  integrity sha512-WDcI9XbRMV0SVSC16sHSeZaAnuBWVSlVhjmDpcRKTrJMjKg9Kdix2u7yRDcFPT5FouflsELsO9hjwGxQLUg3gw==
   dependencies:
     "@typescript-eslint/eslint-plugin" "^5.60.0"
     "@typescript-eslint/parser" "^5.60.0"
@@ -2087,10 +2087,10 @@
     eslint-plugin-simple-import-sort "^10.0.0"
     eslint-plugin-unused-imports "^2.0.0"
 
-"@stickyjs/prettier@1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@stickyjs/prettier/-/prettier-1.1.2.tgz#62919693fa9d66fef667d9aece240445a224c71b"
-  integrity sha512-sipO6HZAj3OJmJWSKir2TGVWUVSUqtDbOmDwd6adAZRPC/wZ9ZHmUb8a4tu90bznMw5My/MRrKsW8o7/Kws/TQ==
+"@stickyjs/prettier@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@stickyjs/prettier/-/prettier-1.2.0.tgz#d09929e6b4b7d3b22a92c0422da63e940c4d0911"
+  integrity sha512-gQNHRuVy53cmrKr2vy8Lw/GLcN/UH/89rDhduCFrOJjYLt/1BULIdkSDY7wwB7hBzoaxP5NA20sTGJytCthEdQ==
   dependencies:
     husky "^8.0.3"
     lint-staged "^13.2.2"
@@ -2098,15 +2098,17 @@
     prettier-plugin-packagejson "^2.4.3"
     prettier-plugin-tailwindcss "^0.3.0"
 
-"@stickyjs/turbo@1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@stickyjs/turbo/-/turbo-1.1.2.tgz#cbe50ce6f4b43aa0da4c38f80e9e908c49271e25"
-  integrity sha512-U1mHiChWWQXbQdh9o4alJ01FegusXJV3O22UgNm3Vs7xqjfJBcH2Up736/pG9s/DiDBceJCQSBrSSMkT+4ZmJQ==
+"@stickyjs/turbo@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@stickyjs/turbo/-/turbo-1.2.0.tgz#2bd8458f9107977c7673b218c3ddb7c1e78983f3"
+  integrity sha512-AfOwVWRC+SE7axWvInepAM2dsI/cYbeOkA5kjl6F7PXz/K2Kiufnu/VE7zs3VXjDfMtoVboYL0dfuxq22gMhwA==
+  dependencies:
+    clipanion "3.2.1"
 
-"@stickyjs/typescript@1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@stickyjs/typescript/-/typescript-1.1.2.tgz#1d174d5a72d7cd44136d4c43b9a397a68cea1fbb"
-  integrity sha512-/S3WiLYPdbUSn2MX0Cpui144DrwDo4Ks6OEcjjCNpD93y0VTiA2K41z2leAGpxgXO6/JDDMyYcOvLzQP8jEeIg==
+"@stickyjs/typescript@1.2.0":
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/@stickyjs/typescript/-/typescript-1.2.0.tgz#fb6f627c717b472eebf3c4845af0b1ffee62439d"
+  integrity sha512-qCE7TttDAedF/SNsUya+5B9f24G7uhNAkO3jeglaCCcvV7moE9Xpph/8Vsw5WCD+N+ZXEgRK+kulw/ruUSIj+Q==
 
 "@types/hammerjs@^2.0.36":
   version "2.0.41"
@@ -3255,6 +3257,13 @@ cli-truncate@^3.1.0:
   dependencies:
     slice-ansi "^5.0.0"
     string-width "^5.0.0"
+
+clipanion@3.2.1:
+  version "3.2.1"
+  resolved "https://registry.yarnpkg.com/clipanion/-/clipanion-3.2.1.tgz#2887db4cb232e80ba57cf19347a4e3a1c4a74133"
+  integrity sha512-dYFdjLb7y1ajfxQopN05mylEpK9ZX0sO1/RfMXdfmwjlIsPkbh4p7A682x++zFPLDCo1x3p82dtljHf5cW2LKA==
+  dependencies:
+    typanion "^3.8.0"
 
 cliui@^6.0.0:
   version "6.0.0"
@@ -9115,6 +9124,11 @@ turbo@1.10.6:
     turbo-linux-arm64 "1.10.6"
     turbo-windows-64 "1.10.6"
     turbo-windows-arm64 "1.10.6"
+
+typanion@^3.8.0:
+  version "3.12.1"
+  resolved "https://registry.yarnpkg.com/typanion/-/typanion-3.12.1.tgz#d33deb130aba23ef6f2a3c69e7fb28148dd9089a"
+  integrity sha512-3SJF/czpzqq6G3lprGFLa6ps12yb1uQ1EmitNnep2fDMNh1aO/Zbq9sWY+3lem0zYb2oHJnQWyabTGUZ+L1ScQ==
 
 type-check@^0.4.0, type-check@~0.4.0:
   version "0.4.0"
