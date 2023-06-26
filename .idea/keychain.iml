@@ -5,6 +5,7 @@
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/app/.expo" />
       <excludeFolder url="file://$MODULE_DIR$/app/.turbo" />
+      <excludeFolder url="file://$MODULE_DIR$/app/dist" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
