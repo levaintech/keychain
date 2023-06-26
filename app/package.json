@@ -4,6 +4,7 @@
   "private": true,
   "main": "AppEntry.js",
   "scripts": {
+    "export": "expo export",
     "lint": "eslint .",
     "start": "expo start",
     "start:android": "expo start --android",
