@@ -5,6 +5,14 @@
     "export": {
       "dependsOn": ["^build", "build:tailwind-rn", "build:tailwindcss"]
     },
+    "build:tailwind-rn": {
+      "inputs": ["tailwind.css"],
+      "outputs": ["tailwind.json"]
+    },
+    "build:tailwindcss": {
+      "inputs": ["app/**/*.{js,jsx,ts,tsx}"],
+      "outputs": ["tailwind.css"]
+    },
     "start": {
       "cache": false,
       "persistent": true,
