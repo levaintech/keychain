@@ -4,16 +4,10 @@
   "private": true,
   "main": "AppEntry.js",
   "scripts": {
-    "build": "",
-    "build:tailwind-rn": "tailwind-rn",
-    "build:tailwindcss": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer",
     "export": "expo export",
     "lint": "eslint .",
-    "start": "expo start",
-    "version": "node version.mjs",
-    "watch": "turbo run watch:tailwindcss watch:tailwind-rn",
-    "watch:tailwind-rn": "tailwind-rn --watch",
-    "watch:tailwindcss": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer --watch"
+    "start": "export METRO_CONFIG_JS_WATCH=true && expo start",
+    "version": "node version.mjs"
   },
   "lint-staged": {
     "*": [
@@ -51,6 +45,7 @@
   },
   "devDependencies": {
     "@levain-keychain/eslint-config": "0.0.0",
+    "@parcel/watcher": "^2.1.0",
     "@types/react": "~18.0.27",
     "@types/react-native": "^0.72.2",
     "postcss": "^8.4.24",
