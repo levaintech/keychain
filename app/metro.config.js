@@ -13,6 +13,7 @@ const postcss = require('postcss');
  */
 module.exports = (async () => {
   const config = getDefaultConfig(__dirname);
+  config.resolver.blockList = /^.+\.e2e\.ts$/;
   await postCSS(process.env.METRO_CONFIG_JS_WATCH === 'true');
   return config;
 })();

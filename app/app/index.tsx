@@ -8,7 +8,7 @@ export default function Home(): JSX.Element {
 
   return (
     <View style={tailwind('flex-1 items-center justify-center bg-white')}>
-      <Text style={tailwind('text-center text-xl text-blue-600')}>
+      <Text style={tailwind('text-center text-xl text-blue-600')} testID="KeyChain">
         KeyChain — Open up index.tsx to start working on your app!
       </Text>
       {/* Use the `Screen` component to configure the layout. */}

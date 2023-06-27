@@ -2,6 +2,12 @@
 
 [![CI](https://github.com/levaintech/keychain/actions/workflows/ci.yml/badge.svg)](https://github.com/levaintech/keychain/actions/workflows/ci.yml)
 
+## Testing
+
+### Unit & Integration (jest)
+
+### End-to-end (playwright)
+
 ## Security
 
 > While we strive to be as transparent as possible to maintain the integrity of our ecosystem, we also understand that

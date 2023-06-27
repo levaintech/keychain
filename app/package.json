@@ -6,6 +6,7 @@
   "scripts": {
     "export": "expo export",
     "lint": "eslint .",
+    "playwright:open": "playwright install && playwright test --ui",
     "start": "export METRO_CONFIG_JS_WATCH=true && expo start",
     "version": "node version.mjs"
   },
@@ -46,6 +47,7 @@
   "devDependencies": {
     "@levain-keychain/eslint-config": "0.0.0",
     "@parcel/watcher": "^2.1.0",
+    "@playwright/test": "^1.35.1",
     "@types/react": "~18.0.27",
     "@types/react-native": "^0.72.2",
     "classnames": "^2.3.2",
