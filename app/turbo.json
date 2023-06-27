@@ -3,11 +3,12 @@
   "extends": ["//"],
   "pipeline": {
     "export": {
-      "dependsOn": ["^build", "build:tailwind-rn", "build:tailwindcss"]
+      "dependsOn": ["^build", "build:tailwind-rn"]
     },
     "build:tailwind-rn": {
       "inputs": ["tailwind.css"],
-      "outputs": ["tailwind.json"]
+      "outputs": ["tailwind.json"],
+      "dependsOn": ["build:tailwindcss"]
     },
     "build:tailwindcss": {
       "inputs": ["app/**/*.{js,jsx,ts,tsx}"],
