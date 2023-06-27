@@ -136,15 +136,15 @@ jobs:
 
       - run: yarn install --frozen-lockfile
 
-      - id: cache
-        uses: actions/cache@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+      - uses: actions/cache/restore@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        id: cache-restore
         with:
           path: ~/.cache/ms-playwright
           key: playwright-${{ runner.os }}
 
       - name: playwright install
         working-directory: app
-        if: steps.cache.outputs.cache-hit != 'true'
+        if: steps.cache-restore.outputs.cache-hit != 'true'
         run: yarn playwright install --with-deps
 
       - name: playwright test
@@ -157,6 +157,12 @@ jobs:
           name: playwright-report
           path: app/playwright/playwright-report/
           retention-days: 7
+
+      - uses: actions/cache/save@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
+        if: always() && steps.cache-restore.outputs.cache-hit != 'true' && matrix.shardIndex == 1
+        with:
+          path: ~/.cache/ms-playwright
+          key: playwright-${{ runner.os }}
 
   test_completed:
     name: Test [completed]
