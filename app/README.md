@@ -2,24 +2,9 @@
 
 ## Developing
 
-You need to separate terminal windows for each of the following commands:
-
-```bash
-yarn run watch
-```
-
 ```bash
 yarn run start
 ```
-
-The first command will `watch` for changes in the `./app` directory and rebuild the app on the fly.
-This is powered by turborepo, see `turbo.json`.
-
-The second command will `start` the expo dev server, this command is powered by expo.
-
-> We separate the two commands because expo does not support extensions that allow watching for changes in the `./app`
-> directory. We couldn't use turborepo to chain the two commands because expo requires stdin to be a TTY.
-> Instead of hacking around this with a custom script, we decided to keep the two commands separate.
 
 ## Dependencies Management
 

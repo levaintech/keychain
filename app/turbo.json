@@ -4,32 +4,12 @@
   "pipeline": {
     "export": {
       "cache": false,
-      "dependsOn": ["build"]
-    },
-    "build": {
-      "dependsOn": ["^build", "build:tailwind-rn"]
-    },
-    "build:tailwind-rn": {
-      "inputs": ["tailwind.css"],
-      "outputs": ["tailwind.json"],
-      "dependsOn": ["build:tailwindcss"]
-    },
-    "build:tailwindcss": {
-      "inputs": ["app/**/*.{js,jsx,ts,tsx}"],
-      "outputs": ["tailwind.css"]
+      "dependsOn": ["^build"]
     },
     "start": {
       "cache": false,
       "persistent": true,
       "dependsOn": ["^build"]
-    },
-    "watch:tailwind-rn": {
-      "cache": false,
-      "persistent": true
-    },
-    "watch:tailwindcss": {
-      "cache": false,
-      "persistent": true
     }
   }
 }
