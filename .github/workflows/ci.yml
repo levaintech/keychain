@@ -107,7 +107,7 @@ jobs:
       - run: yarn run version ${{ needs.build_version.outputs.result }}
         working-directory: ./app
 
-      - run: yarn run build
+      - run: yarn turbo run build
         working-directory: ./app
 
       - uses: expo/expo-github-action/preview@4479f0b3692e25169fa71a02c30d6586ec2f5601 # v8.0.0
