@@ -1,6 +1,6 @@
 [build]
 publish = "app/dist/"
-command = "turbo run export --filter=app"
+command = "turbo run export --filter=app -- --platform web"
 
 [[redirects]]
 from = "/*"
