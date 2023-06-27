@@ -41,6 +41,8 @@ async function postCSS(watch) {
     await fs.writeFile(path.join(__dirname, 'tailwind.json'), content);
   }
 
+  await process();
+
   if (watch) {
     await watcher.subscribe(path.join(__dirname, 'app'), process);
   }
