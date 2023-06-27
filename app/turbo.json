@@ -3,6 +3,10 @@
   "extends": ["//"],
   "pipeline": {
     "export": {
+      "cache": false,
+      "dependsOn": ["build"]
+    },
+    "build": {
       "dependsOn": ["^build", "build:tailwind-rn"]
     },
     "build:tailwind-rn": {

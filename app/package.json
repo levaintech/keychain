@@ -4,6 +4,7 @@
   "private": true,
   "main": "AppEntry.js",
   "scripts": {
+    "build": "",
     "build:tailwind-rn": "tailwind-rn",
     "build:tailwindcss": "tailwindcss --input input.css --output tailwind.css --no-autoprefixer",
     "export": "expo export",
