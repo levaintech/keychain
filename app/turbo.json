@@ -3,7 +3,20 @@
   "extends": ["//"],
   "pipeline": {
     "export": {
+      "dependsOn": ["^build", "build:tailwind-rn", "build:tailwindcss"]
+    },
+    "start": {
+      "cache": false,
+      "persistent": true,
       "dependsOn": ["^build"]
+    },
+    "watch:tailwind-rn": {
+      "cache": false,
+      "persistent": true
+    },
+    "watch:tailwindcss": {
+      "cache": false,
+      "persistent": true
     }
   }
 }
