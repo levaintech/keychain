@@ -1,0 +1,8 @@
+[build]
+publish = "app/dist/"
+command = "turbo run export --filter=app"
+
+[[redirects]]
+from = "/*"
+to = "/index.html"
+status = 200
