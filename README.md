@@ -4,9 +4,33 @@
 
 ## Testing
 
-### Unit & Integration (jest)
+### Unit (`*.unit.ts` via jest)
 
-### End-to-end (playwright)
+The purpose of unit tests is to test each unit of code in isolation from the rest of the code to quickly pinpoint where
+code is and isn't working as expected. You'll put unit tests in the src directory in accompanying each file with the
+code that they're testing.
+
+They must follow the naming semantic of `*.unit.ts` and placed together in the same directory as the code you're
+testing.
+
+### Integration (`*.i9n.ts` via jest)
+
+Unit tests do have one major disadvantage: even if the units work well in isolation, you do not know if they work well
+together. An integration test takes a small group of units, often two units, and tests their behavior as a whole,
+verifying that they coherently work together.
+
+They must follow the naming semantic of `*.i9n.ts` and placed contextually in the same directory as the context you're
+testing.
+
+### End-to-end (`*.e2e.ts` via playwright)
+
+End-to-end testing verifies that our software works correctly from the beginning to the end of a particular user flow.
+It replicates expected user behavior and various usage scenarios to ensure that your software works as whole. e2e
+testing should mimic (as much as possible) a production equivalent environment and data to simulate real-world
+situations.
+
+They must follow the naming semantic of `*.e2e.ts` and placed contextually in the same directory as the context you're
+testing.
 
 ## Security
 
