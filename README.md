@@ -32,6 +32,12 @@ situations.
 They must follow the naming semantic of `*.e2e.ts` and placed contextually in the same directory as the context you're
 testing.
 
+To have a sane end-to-end testing experience, we use [Playwright](https://playwright.dev/) as our main and only e2e
+testing framework. Playwright is built to enable cross-browser web automation that is ever-green, capable, reliable and
+fast. While this isn't a replacement for native mobile testing, it does provide a great way to test our application
+end-to-end. For avoidance of doubt, this means that we will not be using any other e2e testing framework other than
+Playwright.
+
 ## Security
 
 > While we strive to be as transparent as possible to maintain the integrity of our ecosystem, we also understand that
