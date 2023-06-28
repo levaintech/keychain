@@ -31,7 +31,7 @@ export default defineConfig({
   reporter: [
     // For GitHub Actions CI to generate annotations
     ['github'],
-    ['html', { outputFolder: './playwright/playwright-report' }],
+    ['html', { outputFolder: './playwright/test-report' }],
   ],
 
   use: {

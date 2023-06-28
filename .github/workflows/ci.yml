@@ -149,13 +149,13 @@ jobs:
 
       - name: playwright test
         working-directory: app
-        run: yarn playwright test
+        run: yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         if: always()
         with:
           name: playwright-report
-          path: app/playwright/playwright-report/
+          path: app/playwright/test-report/
           retention-days: 7
 
       - uses: actions/cache/save@88522ab9f39a2ea568f7027eddc7d8d8bc9d59c8 # v3.3.1
