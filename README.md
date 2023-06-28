@@ -2,6 +2,42 @@
 
 [![CI](https://github.com/levaintech/keychain/actions/workflows/ci.yml/badge.svg)](https://github.com/levaintech/keychain/actions/workflows/ci.yml)
 
+## Testing
+
+### Unit (`*.unit.ts` via jest)
+
+The purpose of unit tests is to test each unit of code in isolation from the rest of the code to quickly pinpoint where
+code is and isn't working as expected. You'll put unit tests in the src directory in accompanying each file with the
+code that they're testing.
+
+They must follow the naming semantic of `*.unit.ts` and placed together in the same directory as the code you're
+testing.
+
+### Integration (`*.i9n.ts` via jest)
+
+Unit tests do have one major disadvantage: even if the units work well in isolation, you do not know if they work well
+together. An integration test takes a small group of units, often two units, and tests their behavior as a whole,
+verifying that they coherently work together.
+
+They must follow the naming semantic of `*.i9n.ts` and placed contextually in the same directory as the context you're
+testing.
+
+### End-to-end (`*.e2e.ts` via playwright)
+
+End-to-end testing verifies that our software works correctly from the beginning to the end of a particular user flow.
+It replicates expected user behavior and various usage scenarios to ensure that your software works as whole. e2e
+testing should mimic (as much as possible) a production equivalent environment and data to simulate real-world
+situations.
+
+They must follow the naming semantic of `*.e2e.ts` and placed contextually in the same directory as the context you're
+testing.
+
+To have a sane end-to-end testing experience, we use [Playwright](https://playwright.dev/) as our main and only e2e
+testing framework. Playwright is built to enable cross-browser web automation that is ever-green, capable, reliable and
+fast. While this isn't a replacement for native mobile testing, it does provide a great way to test our application
+end-to-end. For avoidance of doubt, this means that we will not be using any other e2e testing framework other than
+Playwright.
+
 ## Security
 
 > While we strive to be as transparent as possible to maintain the integrity of our ecosystem, we also understand that

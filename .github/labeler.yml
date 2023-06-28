@@ -36,30 +36,10 @@ labels:
     matcher:
       files: '.github/**'
 
-  - label: area/sticky-jest
+  - label: area/app
     sync: true
     matcher:
-      files: 'packages/sticky-jest/**'
-
-  - label: area/sticky-prettier
-    sync: true
-    matcher:
-      files: 'packages/sticky-prettier/**'
-
-  - label: area/sticky-turbo
-    sync: true
-    matcher:
-      files: 'packages/sticky-turbo/**'
-
-  - label: area/sticky-turbo-jest
-    sync: true
-    matcher:
-      files: 'packages/sticky-turbo-jest/**'
-
-  - label: area/sticky-typescript
-    sync: true
-    matcher:
-      files: 'packages/sticky-typescript/**'
+      files: 'app/**'
 
   - label: area/eslint-config
     sync: true
