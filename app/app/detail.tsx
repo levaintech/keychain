@@ -10,7 +10,7 @@ export default function Details(): JSX.Element {
       <Stack.Screen options={{ title: 'Detail' }} />
       <Text
         style={tailwind('text-2xl font-medium')}
-        id="DetailScreen"
+        testID="DetailScreen"
         onPress={() => {
           // Go back to the previous screen using the imperative API.
           router.back();

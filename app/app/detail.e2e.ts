@@ -5,6 +5,6 @@ test.describe('Detail', async () => {
     await page.goto('/');
 
     await page.getByTestId('GoToDetail').click();
-    await expect(page.getByTestId('DetailScreen')).toHaveText('Fail');
+    await expect(page.getByTestId('DetailScreen')).toHaveText('Details Screen');
   });
 });
