@@ -6,9 +6,11 @@ export default defineConfig({
 
   webServer: {
     command: 'yarn run start',
-    url: 'http://localhost:19000/',
+    // http://localhost:19000/ isn't reliable to determine if the server is ready.
+    // However, AppEntry.bundle will only be available after the "Web Bundling complete" message.
+    url: 'http://localhost:19000/AppEntry.bundle?platform=web&hot=false',
     reuseExistingServer: !process.env.CI,
-    timeout: 120 * 1000,
+    timeout: 180 * 1000,
     stdout: 'pipe',
     stderr: 'pipe',
   },
