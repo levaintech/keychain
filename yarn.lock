@@ -4150,10 +4150,10 @@ eslint-plugin-node@^11.1.0:
     resolve "^1.10.1"
     semver "^6.1.0"
 
-eslint-plugin-playwright@^0.12.0:
-  version "0.12.0"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-playwright/-/eslint-plugin-playwright-0.12.0.tgz#0c728e07c217b5ea48acef46c52eefba9cf8ebd3"
-  integrity sha512-KXuzQjVzca5irMT/7rvzJKsVDGbQr43oQPc8i+SLEBqmfrTxlwMwRqfv9vtZqh4hpU0jmrnA/EOfwtls+5QC1w==
+eslint-plugin-playwright@^0.15.2:
+  version "0.15.2"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-playwright/-/eslint-plugin-playwright-0.15.2.tgz#88328dc5fe2b2af39d88abb495ed9bfc562c896b"
+  integrity sha512-Q2jQ7ORjZscvwxR6MEgITZy23vxlnYlJlMR7aICFczWVMijTCZPGvvMoZaLWkAzx5J6fciulwbg+JJeRjMkTig==
 
 eslint-plugin-prettier@^4.2.1:
   version "4.2.1"
