@@ -6,6 +6,7 @@
       <excludeFolder url="file://$MODULE_DIR$/app/.expo" />
       <excludeFolder url="file://$MODULE_DIR$/app/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/app/dist" />
+      <excludeFolder url="file://$MODULE_DIR$/app/playwright" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
