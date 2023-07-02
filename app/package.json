@@ -46,7 +46,7 @@
   },
   "devDependencies": {
     "@levain-keychain/eslint-config": "0.0.0",
-    "@parcel/watcher": "^2.1.0",
+    "@parcel/watcher": "^2.2.0",
     "@playwright/test": "^1.35.1",
     "@types/react": "~18.0.27",
     "@types/react-native": "^0.72.2",
