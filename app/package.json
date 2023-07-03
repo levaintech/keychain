@@ -5,8 +5,9 @@
   "main": "AppEntry.js",
   "scripts": {
     "export": "expo export",
-    "lint": "eslint .",
+    "lint": "eslint app",
     "playwright:open": "playwright install && playwright test --ui",
+    "playwright:test": "playwright install && playwright test",
     "start": "export METRO_CONFIG_JS_WATCH=true && expo start",
     "version": "node version.mjs"
   },
@@ -29,6 +30,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.20.0",
+    "@expo/vector-icons": "^13.0.0",
     "expo": "~48.0.18",
     "expo-constants": "~14.2.1",
     "expo-linking": "~4.0.1",
