@@ -1,9 +1,10 @@
-import AntDesign from '@expo/vector-icons/AntDesign';
 import { nativeApplicationVersion } from 'expo-application';
-import * as Haptics from 'expo-haptics';
 import { Stack, useRouter } from 'expo-router';
-import { Platform, SectionList, Text, TouchableOpacity, View } from 'react-native';
+import { Platform, SectionList, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
+
+import { useHapticFeedback } from '../../HapticFeedback';
+import { IconSet } from '../../IconSet';
 
 export default function SettingPage(): JSX.Element {
   const tailwind = useTailwind();
@@ -16,14 +17,14 @@ export default function SettingPage(): JSX.Element {
         style={tailwind('bg-stone-900')}
         sections={[
           {
-            title: 'APP',
+            title: 'KEYCHAIN',
             data: [
               {
                 type: 'select',
                 props: {
                   to: '/keychain/settings/app/keys',
                   icon: 'key',
-                  title: 'Key Storage',
+                  title: 'Key Settings',
                 },
               },
               {
@@ -40,6 +41,18 @@ export default function SettingPage(): JSX.Element {
                   to: '/keychain/settings/app/scan',
                   icon: 'scan1',
                   title: 'Scan Signing',
+                },
+              },
+            ],
+          },
+          {
+            title: 'APP',
+            data: [
+              {
+                type: 'haptic',
+                props: {
+                  icon: 'retweet',
+                  title: 'Haptic Feedback',
                 },
               },
             ],
@@ -98,7 +111,7 @@ export default function SettingPage(): JSX.Element {
           },
         ]}
         renderSectionHeader={({ section }) => (
-          <Text style={tailwind('pt-8 pb-2 px-6 text-white')}>{section.title}</Text>
+          <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-stone-900')}>{section.title}</Text>
         )}
         renderItem={({ item }) => {
           switch (item.type) {
@@ -108,6 +121,8 @@ export default function SettingPage(): JSX.Element {
               return <SettingRowLink {...item.props} />;
             case 'version':
               return <SettingRowVersion {...item.props} />;
+            case 'haptic':
+              return <SettingRowHaptic {...item.props} />;
             default:
               return <></>;
           }
@@ -140,9 +155,9 @@ function SettingRowVersion(props: RowProps): JSX.Element {
   })();
 
   return (
-    <View style={tailwind('py-3 px-6 bg-stone-800 flex-row items-center justify-between')}>
-      <View style={tailwind('flex-row items-center justify-between')}>
-        <AntDesign name={props.icon} size={20} style={tailwind('text-white')}></AntDesign>
+    <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+      <View style={tailwind('py-3 flex-row items-center justify-between')}>
+        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
         <Text style={tailwind('text-white text-base ml-2')}>
           {props.title} {platform}
         </Text>
@@ -152,17 +167,39 @@ function SettingRowVersion(props: RowProps): JSX.Element {
   );
 }
 
+function SettingRowHaptic(props: RowProps): JSX.Element {
+  const tailwind = useTailwind();
+  const haptic = useHapticFeedback();
+
+  return (
+    <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+      <View style={tailwind('flex-row py-3 items-center justify-between')}>
+        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
+        <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
+      </View>
+      <View>
+        <Switch
+          onValueChange={async (value: boolean) => {
+            await haptic.setEnabled(value);
+          }}
+          value={haptic.isEnabled()}
+        />
+      </View>
+    </View>
+  );
+}
+
 function SettingRowLink(props: RowProps): JSX.Element {
   const tailwind = useTailwind();
 
   return (
-    <View style={tailwind('py-3 px-6 bg-stone-800 flex-row items-center justify-between')}>
-      <View style={tailwind('flex-row items-center justify-between')}>
-        <AntDesign name={props.icon} size={20} style={tailwind('text-white')}></AntDesign>
+    <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+      <View style={tailwind('py-3 flex-row items-center justify-between')}>
+        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
         <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
       </View>
       <View>
-        <AntDesign name="right" size={16} style={tailwind('text-stone-500')} />
+        <IconSet name="right" size={16} style={tailwind('text-stone-500')} />
       </View>
     </View>
   );
@@ -171,21 +208,22 @@ function SettingRowLink(props: RowProps): JSX.Element {
 function SettingRowSelect(props: RowProps): JSX.Element {
   const tailwind = useTailwind();
   const router = useRouter();
+  const haptic = useHapticFeedback();
 
   return (
     <TouchableOpacity
       onPress={async () => {
         router.push(props.to!);
-        await Haptics.selectionAsync();
+        await haptic.selectionAsync();
       }}
     >
-      <View style={tailwind('py-3 px-6 bg-stone-800 flex-row items-center justify-between')}>
-        <View style={tailwind('flex-row items-center justify-between')}>
-          <AntDesign name={props.icon} size={20} style={tailwind('text-white')}></AntDesign>
+      <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+        <View style={tailwind('py-3 flex-row items-center justify-between')}>
+          <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
           <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
         </View>
         <View>
-          <AntDesign name="right" size={16} style={tailwind('text-stone-500')} />
+          <IconSet name="right" size={16} style={tailwind('text-stone-500')} />
         </View>
       </View>
     </TouchableOpacity>
