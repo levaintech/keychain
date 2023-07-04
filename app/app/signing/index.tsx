@@ -7,7 +7,7 @@ export default function ApprovalPage(): JSX.Element {
 
   return (
     <>
-      <View style={tailwind('flex-1 items-center justify-center bg-black')}>
+      <View style={tailwind('flex-1 items-center justify-center bg-stone-900')}>
         <Text style={tailwind('text-center text-xl text-white')}>KeyChain — Approval</Text>
 
         <Link href="/_sitemap" style={tailwind('my-2')} testID="">

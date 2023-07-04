@@ -7,6 +7,7 @@
       <excludeFolder url="file://$MODULE_DIR$/app/.turbo" />
       <excludeFolder url="file://$MODULE_DIR$/app/dist" />
       <excludeFolder url="file://$MODULE_DIR$/app/playwright" />
+      <excludeFolder url="file://$MODULE_DIR$/app/tailwind.json" />
     </content>
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

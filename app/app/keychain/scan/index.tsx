@@ -6,8 +6,8 @@ export default function QrPage(): JSX.Element {
 
   return (
     <>
-      <View style={tailwind('flex-1 items-center justify-center bg-black')}>
-        <Text style={tailwind('text-center text-xl text-white')}>KeyChain — QR</Text>
+      <View style={tailwind('flex-1 items-center justify-center bg-stone-900')}>
+        <Text style={tailwind('text-center text-xl text-white')}>KeyChain — Scan</Text>
       </View>
     </>
   );
