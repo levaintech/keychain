@@ -1,4 +1,4 @@
-import { Link } from 'expo-router';
+import { Link, Stack } from 'expo-router';
 import { Text, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
@@ -9,6 +9,7 @@ export default function KeysPage(): JSX.Element {
 
   return (
     <>
+      <Stack.Screen options={{ title: 'Keys' }} />
       <View style={tailwind('flex-1 items-center justify-center bg-stone-900')}>
         <Text style={tailwind('text-center text-xl text-white')} testID="KeysPage.Keys">
           Keys
