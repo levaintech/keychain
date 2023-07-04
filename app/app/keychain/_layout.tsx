@@ -1,25 +1,27 @@
-import AntDesign from '@expo/vector-icons/AntDesign';
-import * as Haptics from 'expo-haptics';
 import { Tabs } from 'expo-router';
 import { ComponentProps } from 'react';
 import { useTailwind } from 'tailwind-rn';
 
+import { useHapticFeedback } from '../HapticFeedback';
+import { IconSet } from '../IconSet';
+
 export default function TabsLayout(): JSX.Element {
   const tailwind = useTailwind();
+  const haptic = useHapticFeedback();
 
   function tabScreenProps(props: {
     route: string;
     title: string;
-    icon: ComponentProps<typeof AntDesign>['name'];
+    icon: ComponentProps<typeof IconSet>['name'];
   }): ComponentProps<typeof Tabs.Screen> {
     return {
       name: props.route,
       listeners: () => ({
-        tabPress: () => Haptics.selectionAsync(),
+        tabPress: () => haptic.selectionAsync(),
       }),
       options: {
         title: props.title,
-        tabBarIcon: ({ color }) => <AntDesign name={props.icon} size={24} color={color} />,
+        tabBarIcon: ({ color }) => <IconSet name={props.icon} size={24} color={color} />,
       },
     };
   }
