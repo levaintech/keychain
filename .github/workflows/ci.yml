@@ -113,7 +113,7 @@ jobs:
       - uses: expo/expo-github-action/preview@4479f0b3692e25169fa71a02c30d6586ec2f5601 # v8.0.0
         with:
           working-directory: ./app
-          command: eas update --branch pr-${{ github.event.number }} --message "Update with commit ${{ github.sha }}"
+          command: eas update --branch pr-${{ github.event.number }} --message "PR ${{ github.event.number }} with commit ${{ github.sha }}"
 
   test_playwright:
     name: Test [Playwright]

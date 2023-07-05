@@ -7,7 +7,12 @@ export default function KeyStoragePage(): JSX.Element {
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Key Storage' }} />
+      <Stack.Screen
+        options={{
+          title: 'Key Settings',
+          headerLargeTitle: true,
+        }}
+      />
       <View style={tailwind('flex-1 items-center justify-center bg-stone-900')}>
         <Text style={tailwind('text-center text-xl text-white')} testID="KeysPage.Keys">
           Settings - keys.tsx

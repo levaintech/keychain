@@ -2,12 +2,12 @@ import { Tabs } from 'expo-router';
 import { ComponentProps } from 'react';
 import { useTailwind } from 'tailwind-rn';
 
-import { useHapticFeedback } from '../HapticFeedback';
+import { useHaptic } from '../HapticFeedback';
 import { IconSet } from '../IconSet';
 
 export default function TabsLayout(): JSX.Element {
   const tailwind = useTailwind();
-  const haptic = useHapticFeedback();
+  const haptic = useHaptic();
 
   function tabScreenProps(props: {
     route: string;

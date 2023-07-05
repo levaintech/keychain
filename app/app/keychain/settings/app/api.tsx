@@ -7,7 +7,12 @@ export default function ApiSigningPage(): JSX.Element {
 
   return (
     <>
-      <Stack.Screen options={{ title: 'API Signing' }} />
+      <Stack.Screen
+        options={{
+          title: 'API Signing',
+          headerLargeTitle: true,
+        }}
+      />
       <View style={tailwind('flex-1 items-center justify-center bg-stone-900')}>
         <Text style={tailwind('text-center text-xl text-white')} testID="KeysPage.Keys">
           Settings - api.tsx
