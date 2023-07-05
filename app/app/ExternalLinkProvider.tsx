@@ -4,7 +4,7 @@ import { createContext, PropsWithChildren, useCallback, useContext, useRef, useS
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-import { useHapticFeedback } from './HapticFeedback';
+import { useHaptic } from './HapticFeedback';
 import { IconSet } from './IconSet';
 
 export interface ExternalLinkOptions {
@@ -19,7 +19,7 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
   const tailwind = useTailwind();
   const modalRef = useRef<BottomSheetModal>(null);
   const [url, setUrl] = useState<string | undefined>(undefined);
-  const haptic = useHapticFeedback();
+  const haptic = useHaptic();
 
   const open = useCallback((openUrl: string) => {
     setUrl(openUrl);
@@ -77,8 +77,8 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
                   close();
                 }}
               >
-                <View style={tailwind('rounded bg-stone-600 px-4 py-2')}>
-                  <Text style={tailwind('text-white font-medium text-lg')}>Continue</Text>
+                <View style={tailwind('rounded bg-stone-200 px-4 py-2')}>
+                  <Text style={tailwind('text-stone-800 font-bold text-base')}>Continue</Text>
                 </View>
               </TouchableOpacity>
             </View>

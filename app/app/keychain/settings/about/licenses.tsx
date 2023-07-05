@@ -7,7 +7,12 @@ export default function LicensesPage(): JSX.Element {
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Licenses' }} />
+      <Stack.Screen
+        options={{
+          title: 'Licenses',
+          headerLargeTitle: true,
+        }}
+      />
       <View style={tailwind('flex-1 items-center justify-center bg-stone-900')}>
         <Text style={tailwind('text-center text-xl text-white')} testID="KeysPage.Keys">
           Settings - licenses.tsx

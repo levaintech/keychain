@@ -7,7 +7,12 @@ export default function ScanSigningPage(): JSX.Element {
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Scan Signing' }} />
+      <Stack.Screen
+        options={{
+          title: 'Scan Signing',
+          headerLargeTitle: true,
+        }}
+      />
       <View style={tailwind('flex-1 items-center justify-center bg-stone-900')}>
         <Text style={tailwind('text-center text-xl text-white')} testID="KeysPage.Keys">
           Settings - scan.tsx

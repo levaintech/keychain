@@ -4,7 +4,7 @@ import { Platform, SectionList, Switch, Text, TouchableOpacity, View } from 'rea
 import { useTailwind } from 'tailwind-rn';
 
 import { useExternalLink } from '../../ExternalLinkProvider';
-import { useHapticFeedback } from '../../HapticFeedback';
+import { useHaptic } from '../../HapticFeedback';
 import { IconSet } from '../../IconSet';
 
 export default function SettingPage(): JSX.Element {
@@ -97,7 +97,7 @@ export default function SettingPage(): JSX.Element {
                 props: {
                   to: '/keychain/settings/about/design',
                   icon: 'codesquareo',
-                  title: 'Design System',
+                  title: 'Design',
                 },
               },
               {
@@ -128,6 +128,11 @@ export default function SettingPage(): JSX.Element {
           }
         }}
         keyExtractor={(item) => item.type + item.props.title}
+        ItemSeparatorComponent={() => (
+          <View style={tailwind('pl-12 bg-stone-800')}>
+            <View style={tailwind('bg-stone-900 opacity-40 w-full h-px')} />
+          </View>
+        )}
       />
     </>
   );
@@ -169,7 +174,7 @@ function SettingRowVersion(props: RowProps): JSX.Element {
 
 function SettingRowHaptic(props: RowProps): JSX.Element {
   const tailwind = useTailwind();
-  const haptic = useHapticFeedback();
+  const haptic = useHaptic();
 
   return (
     <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
@@ -179,6 +184,11 @@ function SettingRowHaptic(props: RowProps): JSX.Element {
       </View>
       <View>
         <Switch
+          thumbColor={tailwind('text-stone-200').color as any}
+          trackColor={{
+            false: tailwind('text-teal-500').color as any,
+            true: tailwind('text-teal-500').color as any,
+          }}
           onValueChange={async (value: boolean) => {
             await haptic.setEnabled(value);
           }}
@@ -192,7 +202,7 @@ function SettingRowHaptic(props: RowProps): JSX.Element {
 function SettingRowLink(props: RowProps): JSX.Element {
   const tailwind = useTailwind();
   const external = useExternalLink();
-  const haptic = useHapticFeedback();
+  const haptic = useHaptic();
 
   return (
     <TouchableOpacity
@@ -217,7 +227,7 @@ function SettingRowLink(props: RowProps): JSX.Element {
 function SettingRowSelect(props: RowProps): JSX.Element {
   const tailwind = useTailwind();
   const router = useRouter();
-  const haptic = useHapticFeedback();
+  const haptic = useHaptic();
 
   return (
     <TouchableOpacity

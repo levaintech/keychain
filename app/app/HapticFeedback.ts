@@ -28,7 +28,7 @@ const HapticFeedbackContext = createContext<HapticFeedbackOptions>({} as any);
 /**
  * @return A hook that provides access to the haptic feedback API.
  */
-export function useHapticFeedback(): HapticFeedbackOptions {
+export function useHaptic(): HapticFeedbackOptions {
   return useContext(HapticFeedbackContext);
 }
 
