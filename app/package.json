@@ -52,6 +52,7 @@
     "typescript": "4.9.5"
   },
   "devDependencies": {
+    "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@levain-keychain/eslint-config": "0.0.0",
     "@parcel/watcher": "^2.2.0",
     "@playwright/test": "^1.35.1",
