@@ -9,17 +9,7 @@ import {
 import { createContext, createElement, PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 
-// export const HapticFeedback = {
-//   isActive(): boolean {
-//     return true;
-//   },
-//   setPreference(value: boolean): void {
-//     if (Platform.OS) {
-//     }
-//   },
-// };
-
-interface HapticFeedbackHook {
+interface HapticFeedbackOptions {
   isAvailable(): boolean;
 
   isEnabled(): boolean;
@@ -33,12 +23,12 @@ interface HapticFeedbackHook {
   impactAsync(style?: ImpactFeedbackStyle): Promise<void>;
 }
 
-const HapticFeedbackContext = createContext<HapticFeedbackHook>({} as any);
+const HapticFeedbackContext = createContext<HapticFeedbackOptions>({} as any);
 
 /**
  * @return A hook that provides access to the haptic feedback API.
  */
-export function useHapticFeedback(): HapticFeedbackHook {
+export function useHapticFeedback(): HapticFeedbackOptions {
   return useContext(HapticFeedbackContext);
 }
 

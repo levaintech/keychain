@@ -8,6 +8,7 @@ import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { TailwindProvider, useTailwind } from 'tailwind-rn';
 
 import utilities from '../tailwind.json';
+import { ExternalLinkProvider } from './ExternalLinkProvider';
 import { HapticFeedbackProvider } from './HapticFeedback';
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
@@ -60,11 +61,13 @@ function AppContainer(): JSX.Element | null {
     <SafeAreaProvider>
       <HapticFeedbackProvider>
         <ThemeProvider value={DarkTheme}>
-          <StatusBar style="light" />
-          <Stack>
-            <Stack.Screen name="keychain" options={{ headerShown: false }} />
-            <Stack.Screen name="signing" options={{ presentation: 'modal' }} />
-          </Stack>
+          <ExternalLinkProvider>
+            <StatusBar style="light" />
+            <Stack>
+              <Stack.Screen name="keychain" options={{ headerShown: false }} />
+              <Stack.Screen name="signing" options={{ presentation: 'modal' }} />
+            </Stack>
+          </ExternalLinkProvider>
         </ThemeProvider>
       </HapticFeedbackProvider>
     </SafeAreaProvider>

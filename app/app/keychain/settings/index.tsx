@@ -3,12 +3,12 @@ import { Stack, useRouter } from 'expo-router';
 import { Platform, SectionList, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
+import { useExternalLink } from '../../ExternalLinkProvider';
 import { useHapticFeedback } from '../../HapticFeedback';
 import { IconSet } from '../../IconSet';
 
 export default function SettingPage(): JSX.Element {
   const tailwind = useTailwind();
-  // TODO(fuxingloh): fill up all the settings with links, pages, etc.
 
   return (
     <>
@@ -191,17 +191,26 @@ function SettingRowHaptic(props: RowProps): JSX.Element {
 
 function SettingRowLink(props: RowProps): JSX.Element {
   const tailwind = useTailwind();
+  const external = useExternalLink();
+  const haptic = useHapticFeedback();
 
   return (
-    <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
-      <View style={tailwind('py-3 flex-row items-center justify-between')}>
-        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
-        <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
+    <TouchableOpacity
+      onPress={async () => {
+        external.open(props.to!);
+        await haptic.impactAsync();
+      }}
+    >
+      <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+        <View style={tailwind('py-3 flex-row items-center justify-between')}>
+          <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
+          <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
+        </View>
+        <View>
+          <IconSet name="right" size={16} style={tailwind('text-stone-500')} />
+        </View>
       </View>
-      <View>
-        <IconSet name="right" size={16} style={tailwind('text-stone-500')} />
-      </View>
-    </View>
+    </TouchableOpacity>
   );
 }
 
