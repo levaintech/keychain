@@ -23,7 +23,7 @@ export default function DesignSystemPage(): JSX.Element {
         }}
       />
       <SafeAreaView style={tailwind('flex-1 bg-stone-900')}>
-        <ScrollView style={tailwind('px-4 my-4')}>
+        <ScrollView>
           <Section title="KEYCHAIN DESIGN SYSTEM">
             <Text style={tailwind('text-base text-stone-200')}>
               A collection of open source rules, principles, and constraints that govern how we design and build Levain
@@ -199,8 +199,8 @@ function Section(props: { title: string; children?: ReactNode; innerStyle?: Styl
   const tailwind = useTailwind();
 
   return (
-    <View style={tailwind('')}>
-      <View style={tailwind('bg-stone-800 rounded mb-4')}>
+    <View style={tailwind('px-4 py-2')}>
+      <View style={tailwind('bg-stone-800 rounded')}>
         <View style={tailwind('py-3 px-4 border-b border-stone-700')}>
           <Text style={tailwind('text-xs text-stone-200')}>{props.title}</Text>
         </View>
