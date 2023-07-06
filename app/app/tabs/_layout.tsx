@@ -3,7 +3,7 @@ import { ComponentProps } from 'react';
 import { useTailwind } from 'tailwind-rn';
 
 import { useHaptic } from '../HapticFeedback';
-import { IconSet } from '../IconSet';
+import { IconSet, IconSetName } from '../IconSet';
 
 export default function TabsLayout(): JSX.Element {
   const tailwind = useTailwind();
@@ -12,7 +12,7 @@ export default function TabsLayout(): JSX.Element {
   function tabScreenProps(props: {
     route: string;
     title: string;
-    icon: ComponentProps<typeof IconSet>['name'];
+    icon: IconSetName;
   }): ComponentProps<typeof Tabs.Screen> {
     return {
       name: props.route,
