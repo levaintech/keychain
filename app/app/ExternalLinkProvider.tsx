@@ -42,30 +42,30 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
         <BottomSheetModal
           ref={modalRef}
           index={0}
-          snapPoints={['30%']}
+          snapPoints={['33%', '50%']}
           backdropComponent={(backdropProps) => (
             <BottomSheetBackdrop
               {...backdropProps}
               disappearsOnIndex={-1}
               appearsOnIndex={0}
-              opacity={0.75}
+              opacity={0.9}
               style={tailwind('bg-zinc-900 top-0 bottom-0 left-0 right-0 absolute')}
               pressBehavior="close"
             />
           )}
-          handleIndicatorStyle={tailwind('bg-zinc-100')}
-          backgroundStyle={tailwind('bg-zinc-800')}
+          handleIndicatorStyle={tailwind('bg-zinc-200')}
+          backgroundStyle={tailwind('bg-zinc-900')}
         >
-          <View style={tailwind('bg-zinc-800 p-4')}>
+          <View style={tailwind('bg-zinc-900 p-4')}>
             <View style={tailwind('flex-row items-stretch')}>
-              <View style={tailwind('rounded bg-zinc-700 p-2')}>
-                <IconSet name="link" size={16} style={tailwind('text-zinc-100')} />
+              <View style={tailwind('rounded bg-zinc-800 p-2')}>
+                <IconSet name="link" size={20} style={tailwind('text-zinc-200')} />
               </View>
-              <View style={tailwind('rounded bg-zinc-700 flex-grow px-2 ml-2 flex-row items-center')}>
-                <Text style={tailwind('text-white text-base')}>{url}</Text>
+              <View style={tailwind('rounded bg-zinc-800 flex-grow px-3 ml-2 flex-row items-center')}>
+                <Text style={tailwind('text-base text-zinc-200')}>{url}</Text>
               </View>
             </View>
-            <Text style={tailwind('text-white py-2 text-base')}>
+            <Text style={tailwind('text-base text-zinc-200 py-2')}>
               You're about to navigate to an external website. Please proceed with caution and avoid sharing sensitive
               information.
             </Text>
