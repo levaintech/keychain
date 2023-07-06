@@ -5,7 +5,7 @@
   "main": "index.js",
   "dependencies": {
     "@stickyjs/eslint-config": "1.2.2",
-    "eslint-config-universe": "11.2.0",
+    "eslint-config-universe": "11.3.0",
     "eslint-plugin-playwright": "^0.15.3"
   }
 }
