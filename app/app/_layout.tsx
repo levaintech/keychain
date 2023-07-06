@@ -1,7 +1,7 @@
 import { DarkTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
-import { StatusBar } from 'expo-status-bar';
+import { setStatusBarStyle } from 'expo-status-bar';
 import { useEffect } from 'react';
 import { Platform, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
@@ -44,32 +44,27 @@ function AppContainer(): JSX.Element | null {
   });
 
   useEffect(() => {
-    if (error) throw error;
-  }, [error]);
-
-  useEffect(() => {
     if (loaded) {
       SplashScreen.hideAsync();
+      setStatusBarStyle('light');
+    }
+    if (error) {
+      throw error;
     }
   }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
-
   return (
-    <SafeAreaProvider>
-      <HapticFeedbackProvider>
+    <HapticFeedbackProvider>
+      <ExternalLinkProvider>
         <ThemeProvider value={DarkTheme}>
-          <ExternalLinkProvider>
-            <StatusBar style="light" />
+          <SafeAreaProvider>
             <Stack>
               <Stack.Screen name="keychain" options={{ headerShown: false }} />
               <Stack.Screen name="signing" options={{ presentation: 'modal' }} />
             </Stack>
-          </ExternalLinkProvider>
+          </SafeAreaProvider>
         </ThemeProvider>
-      </HapticFeedbackProvider>
-    </SafeAreaProvider>
+      </ExternalLinkProvider>
+    </HapticFeedbackProvider>
   );
 }

@@ -17,12 +17,10 @@
       "groupName": "facebook/metro"
     },
     {
-      "matchPackageNames": ["expo", "@babel/core", "@types/react", "typescript"],
-      "groupName": "yarn expo-cli upgrade",
-      "enabled": false
-    },
-    {
       "matchPackageNames": [
+        "@babel/core",
+        "@types/react",
+        "typescript",
         "@expo/vector-icons",
         "@react-native-async-storage/async-storage",
         "@react-native-community/datetimepicker",
@@ -86,6 +84,7 @@
         "expo-permissions",
         "expo-print",
         "expo-random",
+        "expo-router",
         "expo-screen-capture",
         "expo-screen-orientation",
         "expo-secure-store",
@@ -127,7 +126,7 @@
         "@shopify/flash-list",
         "@sentry/react-native"
       ],
-      "groupName": "https://github.com/expo/expo/blob/main/packages/expo/bundledNativeModules.json",
+      "groupName": "expo/expo",
       "enabled": false
     }
   ]
