@@ -6,9 +6,9 @@ export default defineConfig({
 
   webServer: {
     command: 'yarn run start',
-    // http://localhost:19000/ isn't reliable to determine if the server is ready.
+    // http://localhost:8081/ isn't reliable to determine if the server is ready.
     // However, AppEntry.bundle will only be available after the "Web Bundling complete" message.
-    url: 'http://localhost:19000/AppEntry.bundle?platform=web&hot=false',
+    url: 'http://localhost:8081/AppEntry.bundle?platform=web&hot=false',
     reuseExistingServer: !process.env.CI,
     timeout: 180 * 1000,
     stdout: 'pipe',
@@ -38,7 +38,7 @@ export default defineConfig({
 
   use: {
     // Base URL to use in actions like `await page.goto('/')`.
-    baseURL: 'http://localhost:19000',
+    baseURL: 'http://localhost:8081',
     // Collect trace when retrying the failed test.
     trace: 'on',
     // equivalent to cypress: macbook-16
