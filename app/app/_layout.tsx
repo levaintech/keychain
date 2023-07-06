@@ -54,17 +54,17 @@ function AppContainer(): JSX.Element | null {
   }, [loaded]);
 
   return (
-    <HapticFeedbackProvider>
-      <ExternalLinkProvider>
-        <ThemeProvider value={DarkTheme}>
-          <SafeAreaProvider>
+    <SafeAreaProvider>
+      <ThemeProvider value={DarkTheme}>
+        <HapticFeedbackProvider>
+          <ExternalLinkProvider>
             <Stack>
               <Stack.Screen name="keychain" options={{ headerShown: false }} />
               <Stack.Screen name="signing" options={{ presentation: 'modal' }} />
             </Stack>
-          </SafeAreaProvider>
-        </ThemeProvider>
-      </ExternalLinkProvider>
-    </HapticFeedbackProvider>
+          </ExternalLinkProvider>
+        </HapticFeedbackProvider>
+      </ThemeProvider>
+    </SafeAreaProvider>
   );
 }
