@@ -1,5 +1,5 @@
 import { Redirect } from 'expo-router';
 
 export default function App(): JSX.Element {
-  return <Redirect href={'/keychain'} />;
+  return <Redirect href={'/tabs'} />;
 }

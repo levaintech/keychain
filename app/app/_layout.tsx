@@ -27,7 +27,7 @@ function WebContainer(): JSX.Element {
   const tailwind = useTailwind();
   if (Platform.OS === 'web') {
     return (
-      <View style={tailwind('flex-1 justify-center items-center bg-stone-800')}>
+      <View style={tailwind('flex-1 justify-center items-center bg-zinc-800')}>
         <View style={tailwind('w-[390px] h-[800px]')}>
           <AppContainer />
         </View>
@@ -59,8 +59,13 @@ function AppContainer(): JSX.Element | null {
         <HapticFeedbackProvider>
           <ExternalLinkProvider>
             <Stack>
-              <Stack.Screen name="keychain" options={{ headerShown: false }} />
-              <Stack.Screen name="signing" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="tabs" options={{ headerShown: false }} />
+              <Stack.Screen name="sign" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="about/design" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="about/licenses" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="api/settings" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="keys/settings" options={{ presentation: 'modal' }} />
+              <Stack.Screen name="scan/settings" options={{ presentation: 'modal' }} />
             </Stack>
           </ExternalLinkProvider>
         </HapticFeedbackProvider>
