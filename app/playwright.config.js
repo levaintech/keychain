@@ -1,4 +1,4 @@
-import { defineConfig, devices } from '@playwright/test';
+import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: 'app',
@@ -41,15 +41,7 @@ export default defineConfig({
     baseURL: 'http://localhost:8081',
     // Collect trace when retrying the failed test.
     trace: 'on',
-    // equivalent to cypress: macbook-16
-    viewport: { width: 1200, height: 1200 },
+    viewport: { width: 500, height: 900 },
     video: 'on',
   },
-
-  projects: [
-    {
-      name: 'chromium',
-      use: { ...devices['Desktop Chrome'] },
-    },
-  ],
 });

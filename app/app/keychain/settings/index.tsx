@@ -97,7 +97,7 @@ export default function SettingPage(): JSX.Element {
                 props: {
                   to: '/keychain/settings/about/design',
                   icon: 'codesquareo',
-                  title: 'Design',
+                  title: 'Design System',
                 },
               },
               {
@@ -211,13 +211,10 @@ function SettingRowLink(props: RowProps): JSX.Element {
         await haptic.impactAsync();
       }}
     >
-      <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+      <View style={tailwind('px-6 bg-stone-800 flex-row items-center')}>
         <View style={tailwind('py-3 flex-row items-center justify-between')}>
           <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
           <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
-        </View>
-        <View>
-          <IconSet name="right" size={16} style={tailwind('text-stone-500')} />
         </View>
       </View>
     </TouchableOpacity>
@@ -235,6 +232,7 @@ function SettingRowSelect(props: RowProps): JSX.Element {
         router.push(props.to!);
         await haptic.selectionAsync();
       }}
+      testID={props.to}
     >
       <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
         <View style={tailwind('py-3 flex-row items-center justify-between')}>
