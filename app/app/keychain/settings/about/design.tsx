@@ -15,7 +15,7 @@ export default function DesignSystemPage(): JSX.Element {
     <>
       <Stack.Screen
         options={{
-          title: 'Design',
+          title: 'Design System',
           headerLargeTitle: true,
           headerStyle: tailwind('bg-stone-900'),
           headerLargeStyle: tailwind('bg-stone-900'),
@@ -24,7 +24,7 @@ export default function DesignSystemPage(): JSX.Element {
       />
       <SafeAreaView style={tailwind('flex-1 bg-stone-900')}>
         <ScrollView>
-          <Section title="KEYCHAIN DESIGN SYSTEM">
+          <Section title="LEVAIN KEYCHAIN DESIGN SYSTEM">
             <Text style={tailwind('text-base text-stone-200')}>
               A collection of open source rules, principles, and constraints that govern how we design and build Levain
               Keychain. It is a living document that will grow and evolve as we add more features and functionality to

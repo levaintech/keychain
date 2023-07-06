@@ -139,7 +139,6 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: [chromium]
         shardIndex: [1, 2]
         shardTotal: [2]
     steps:
@@ -167,7 +166,7 @@ jobs:
 
       - name: playwright test
         working-directory: app
-        run: yarn playwright test --project=${{ matrix.project }} --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
+        run: yarn playwright test --shard=${{ matrix.shardIndex }}/${{ matrix.shardTotal }}
 
       - uses: actions/upload-artifact@0b7f8abb1508181956e8e162db84b466c27e18ce # v3.1.2
         if: always()

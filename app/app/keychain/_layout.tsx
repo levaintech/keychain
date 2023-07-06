@@ -20,6 +20,7 @@ export default function TabsLayout(): JSX.Element {
         tabPress: () => haptic.selectionAsync(),
       }),
       options: {
+        tabBarTestID: `/keychain/${props.route}`,
         title: props.title,
         tabBarIcon: ({ color }) => <IconSet name={props.icon} size={24} color={color} />,
       },
