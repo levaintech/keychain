@@ -34,7 +34,7 @@ export default function SettingPage(): JSX.Element {
               {
                 type: 'select',
                 props: {
-                  to: '/tabs/api/settings',
+                  to: '/api/settings',
                   icon: 'API',
                   title: 'API Settings',
                 },
