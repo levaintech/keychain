@@ -1,12 +1,12 @@
 import { Text, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-export default function KeysPage(): JSX.Element {
+export default function KeychainTab(): JSX.Element {
   const tailwind = useTailwind();
   return (
     <>
       <View style={tailwind('flex-1 flex-col items-center justify-center bg-zinc-900')}>
-        <Text style={tailwind('text-center text-xl text-white')}>Keys</Text>
+        <Text style={tailwind('text-center text-xl text-white')}>Keychain</Text>
       </View>
     </>
   );

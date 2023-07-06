@@ -65,7 +65,6 @@ function AppContainer(): JSX.Element | null {
               <Stack.Screen name="about/licenses" options={{ presentation: 'modal' }} />
               <Stack.Screen name="api/settings" options={{ presentation: 'modal' }} />
               <Stack.Screen name="keys/settings" options={{ presentation: 'modal' }} />
-              <Stack.Screen name="scan/settings" options={{ presentation: 'modal' }} />
             </Stack>
           </ExternalLinkProvider>
         </HapticFeedbackProvider>
