@@ -3,18 +3,22 @@ import { Stack, useRouter } from 'expo-router';
 import { Platform, SectionList, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-import { useExternalLink } from '../../ExternalLinkProvider';
-import { useHaptic } from '../../HapticFeedback';
-import { IconSet } from '../../IconSet';
+import { useExternalLink } from '../ExternalLinkProvider';
+import { useHaptic } from '../HapticFeedback';
+import { IconSet } from '../IconSet';
 
 export default function SettingPage(): JSX.Element {
   const tailwind = useTailwind();
 
   return (
     <>
-      <Stack.Screen options={{ title: 'Settings' }} />
+      <Stack.Screen
+        options={{
+          title: 'Settings',
+        }}
+      />
       <SectionList
-        style={tailwind('bg-stone-900')}
+        style={tailwind('bg-zinc-900')}
         sections={[
           {
             title: 'KEYCHAIN',
@@ -22,7 +26,7 @@ export default function SettingPage(): JSX.Element {
               {
                 type: 'select',
                 props: {
-                  to: '/keychain/settings/app/keys',
+                  to: '/keys/settings',
                   icon: 'key',
                   title: 'Key Settings',
                 },
@@ -30,17 +34,17 @@ export default function SettingPage(): JSX.Element {
               {
                 type: 'select',
                 props: {
-                  to: '/keychain/settings/app/api',
+                  to: '/tabs/api/settings',
                   icon: 'API',
-                  title: 'API Signing',
+                  title: 'API Settings',
                 },
               },
               {
                 type: 'select',
                 props: {
-                  to: '/keychain/settings/app/scan',
+                  to: '/scan/settings',
                   icon: 'scan1',
-                  title: 'Scan Signing',
+                  title: 'Scan Settings',
                 },
               },
             ],
@@ -87,7 +91,7 @@ export default function SettingPage(): JSX.Element {
               {
                 type: 'select',
                 props: {
-                  to: '/keychain/settings/about/licenses',
+                  to: '/about/licenses',
                   icon: 'book',
                   title: 'Licenses',
                 },
@@ -95,7 +99,7 @@ export default function SettingPage(): JSX.Element {
               {
                 type: 'select',
                 props: {
-                  to: '/keychain/settings/about/design',
+                  to: '/about/design',
                   icon: 'codesquareo',
                   title: 'Design System',
                 },
@@ -111,7 +115,7 @@ export default function SettingPage(): JSX.Element {
           },
         ]}
         renderSectionHeader={({ section }) => (
-          <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-stone-900')}>{section.title}</Text>
+          <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-zinc-900')}>{section.title}</Text>
         )}
         renderItem={({ item }) => {
           switch (item.type) {
@@ -129,8 +133,8 @@ export default function SettingPage(): JSX.Element {
         }}
         keyExtractor={(item) => item.type + item.props.title}
         ItemSeparatorComponent={() => (
-          <View style={tailwind('pl-12 bg-stone-800')}>
-            <View style={tailwind('bg-stone-900 opacity-40 w-full h-px')} />
+          <View style={tailwind('pl-12 bg-zinc-800')}>
+            <View style={tailwind('bg-zinc-900 opacity-40 w-full h-px')} />
           </View>
         )}
       />
@@ -160,7 +164,7 @@ function SettingRowVersion(props: RowProps): JSX.Element {
   })();
 
   return (
-    <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+    <View style={tailwind('px-6 bg-zinc-800 flex-row items-center justify-between')}>
       <View style={tailwind('py-3 flex-row items-center justify-between')}>
         <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
         <Text style={tailwind('text-white text-base ml-2')}>
@@ -177,14 +181,14 @@ function SettingRowHaptic(props: RowProps): JSX.Element {
   const haptic = useHaptic();
 
   return (
-    <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+    <View style={tailwind('px-6 bg-zinc-800 flex-row items-center justify-between')}>
       <View style={tailwind('flex-row py-3 items-center justify-between')}>
         <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
         <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
       </View>
       <View>
         <Switch
-          thumbColor={tailwind('text-stone-200').color as any}
+          thumbColor={tailwind('text-zinc-200').color as any}
           trackColor={{
             false: tailwind('text-teal-500').color as any,
             true: tailwind('text-teal-500').color as any,
@@ -211,7 +215,7 @@ function SettingRowLink(props: RowProps): JSX.Element {
         await haptic.impactAsync();
       }}
     >
-      <View style={tailwind('px-6 bg-stone-800 flex-row items-center')}>
+      <View style={tailwind('px-6 bg-zinc-800 flex-row items-center')}>
         <View style={tailwind('py-3 flex-row items-center justify-between')}>
           <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
           <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
@@ -234,13 +238,13 @@ function SettingRowSelect(props: RowProps): JSX.Element {
       }}
       testID={props.to}
     >
-      <View style={tailwind('px-6 bg-stone-800 flex-row items-center justify-between')}>
+      <View style={tailwind('px-6 bg-zinc-800 flex-row items-center justify-between')}>
         <View style={tailwind('py-3 flex-row items-center justify-between')}>
           <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
           <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
         </View>
         <View>
-          <IconSet name="right" size={16} style={tailwind('text-stone-500')} />
+          <IconSet name="right" size={16} style={tailwind('text-zinc-500')} />
         </View>
       </View>
     </TouchableOpacity>

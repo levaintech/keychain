@@ -49,19 +49,19 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
               disappearsOnIndex={-1}
               appearsOnIndex={0}
               opacity={0.75}
-              style={tailwind('bg-stone-900 top-0 bottom-0 left-0 right-0 absolute')}
+              style={tailwind('bg-zinc-900 top-0 bottom-0 left-0 right-0 absolute')}
               pressBehavior="close"
             />
           )}
-          handleIndicatorStyle={tailwind('bg-stone-100')}
-          backgroundStyle={tailwind('bg-stone-800')}
+          handleIndicatorStyle={tailwind('bg-zinc-100')}
+          backgroundStyle={tailwind('bg-zinc-800')}
         >
-          <View style={tailwind('bg-stone-800 p-4')}>
+          <View style={tailwind('bg-zinc-800 p-4')}>
             <View style={tailwind('flex-row items-stretch')}>
-              <View style={tailwind('rounded bg-stone-700 p-2')}>
-                <IconSet name="link" size={16} style={tailwind('text-stone-100')} />
+              <View style={tailwind('rounded bg-zinc-700 p-2')}>
+                <IconSet name="link" size={16} style={tailwind('text-zinc-100')} />
               </View>
-              <View style={tailwind('rounded bg-stone-700 flex-grow px-2 ml-2 flex-row items-center')}>
+              <View style={tailwind('rounded bg-zinc-700 flex-grow px-2 ml-2 flex-row items-center')}>
                 <Text style={tailwind('text-white text-base')}>{url}</Text>
               </View>
             </View>
@@ -77,8 +77,8 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
                   close();
                 }}
               >
-                <View style={tailwind('rounded bg-stone-200 px-4 py-2')}>
-                  <Text style={tailwind('text-stone-800 font-bold text-base')}>Continue</Text>
+                <View style={tailwind('rounded bg-zinc-200 px-4 py-2')}>
+                  <Text style={tailwind('text-zinc-800 font-bold text-base')}>Continue</Text>
                 </View>
               </TouchableOpacity>
             </View>

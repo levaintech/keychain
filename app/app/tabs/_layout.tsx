@@ -20,7 +20,7 @@ export default function TabsLayout(): JSX.Element {
         tabPress: () => haptic.selectionAsync(),
       }),
       options: {
-        tabBarTestID: `/keychain/${props.route}`,
+        tabBarTestID: `/tabs/${props.route}`,
         title: props.title,
         tabBarIcon: ({ color }) => <IconSet name={props.icon} size={24} color={color} />,
       },
@@ -29,20 +29,21 @@ export default function TabsLayout(): JSX.Element {
 
   return (
     <Tabs
-      initialRouteName="keys"
       screenOptions={{
-        headerShown: false,
+        headerShown: true,
         tabBarShowLabel: false,
         tabBarInactiveTintColor: '#fff',
         tabBarActiveTintColor: '#fff',
-        tabBarStyle: tailwind('bg-stone-900 border-t border-stone-800'),
+        tabBarStyle: tailwind('bg-zinc-900 border-t border-zinc-800'),
+        headerTintColor: tailwind('text-white').color as string,
+        headerStyle: tailwind('bg-zinc-900'),
+        headerTitleStyle: tailwind('text-white'),
       }}
     >
-      <Tabs.Screen name="index" redirect={true} />
-      <Tabs.Screen {...tabScreenProps({ route: 'keys', title: 'KEYS', icon: 'key' })} />
+      <Tabs.Screen {...tabScreenProps({ route: 'index', title: 'Keys', icon: 'key' })} />
       <Tabs.Screen {...tabScreenProps({ route: 'api', title: 'API', icon: 'API' })} />
-      <Tabs.Screen {...tabScreenProps({ route: 'scan', title: 'SCAN', icon: 'scan1' })} />
-      <Tabs.Screen {...tabScreenProps({ route: 'settings', title: 'SETTING', icon: 'setting' })} />
+      <Tabs.Screen {...tabScreenProps({ route: 'scan', title: 'Scan', icon: 'scan1' })} />
+      <Tabs.Screen {...tabScreenProps({ route: 'settings', title: 'Settings', icon: 'setting' })} />
     </Tabs>
   );
 }
