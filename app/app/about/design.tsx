@@ -1,11 +1,11 @@
 import { Stack, useRouter } from 'expo-router';
-import { ComponentProps, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 import { useTailwind } from 'tailwind-rn';
 
 import { useHaptic } from '../HapticFeedback';
-import { IconSet } from '../IconSet';
+import { IconSet, IconSetName } from '../IconSet';
 
 export default function DesignSystemPage(): JSX.Element {
   const tailwind = useTailwind();
@@ -160,11 +160,7 @@ export default function DesignSystemPage(): JSX.Element {
           </Section>
           <Section title="LIST VIEW" innerStyle={tailwind('p-4 bg-zinc-700')}>
             {(() => {
-              function ListViewItem(props: {
-                title: string;
-                subtitle: string;
-                icon: ComponentProps<typeof IconSet>['name'];
-              }): JSX.Element {
+              function ListViewItem(props: { title: string; subtitle: string; icon: IconSetName }): JSX.Element {
                 return (
                   <TouchableOpacity
                     onPress={async () => {
