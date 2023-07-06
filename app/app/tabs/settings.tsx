@@ -7,7 +7,7 @@ import { useExternalLink } from '../ExternalLinkProvider';
 import { useHaptic } from '../HapticFeedback';
 import { IconSet } from '../IconSet';
 
-export default function SettingPage(): JSX.Element {
+export default function SettingsTab(): JSX.Element {
   const tailwind = useTailwind();
 
   return (
@@ -37,14 +37,6 @@ export default function SettingPage(): JSX.Element {
                   to: '/api/settings',
                   icon: 'API',
                   title: 'API Settings',
-                },
-              },
-              {
-                type: 'select',
-                props: {
-                  to: '/scan/settings',
-                  icon: 'scan1',
-                  title: 'Scan Settings',
                 },
               },
             ],

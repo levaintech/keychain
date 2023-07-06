@@ -40,9 +40,10 @@ export default function TabsLayout(): JSX.Element {
         headerTitleStyle: tailwind('text-white'),
       }}
     >
-      <Tabs.Screen {...tabScreenProps({ route: 'index', title: 'Keys', icon: 'key' })} />
-      <Tabs.Screen {...tabScreenProps({ route: 'api', title: 'API', icon: 'API' })} />
-      <Tabs.Screen {...tabScreenProps({ route: 'scan', title: 'Scan', icon: 'scan1' })} />
+      <Tabs.Screen {...tabScreenProps({ route: 'index', title: 'Keychain', icon: 'key' })} />
+      <Tabs.Screen {...tabScreenProps({ route: 'api', title: 'API Requests', icon: 'API' })} />
+      {/* TODO(fuxingloh): implement scan. It is a planned feature, but removed it first to keep the development lean. */}
+      {/* <Tabs.Screen {...tabScreenProps({ route: 'scan', title: 'Scan', icon: 'scan1' })} /> */}
       <Tabs.Screen {...tabScreenProps({ route: 'settings', title: 'Settings', icon: 'setting' })} />
     </Tabs>
   );
