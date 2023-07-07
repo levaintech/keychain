@@ -11,6 +11,7 @@ export default function KeysCreatePage(): JSX.Element {
   const tailwind = useTailwind();
   const haptic = useHaptic();
   const [input, setInput] = useState('1');
+  // TODO(fuxingloh): Set max to 100, taking into account of existing keys already created.
 
   return (
     <>
@@ -43,7 +44,7 @@ export default function KeysCreatePage(): JSX.Element {
             </TouchableOpacity>
             <TextInput
               style={tailwind(
-                'text-4xl font-bold text-zinc-200 text-center px-4 py-2 border-b-2 border-zinc-400 min-w-[120px]',
+                'text-4xl font-bold text-zinc-200 text-center px-4 py-2 border-b-2 border-zinc-400 min-w-[120px] max-w-[200px]',
               )}
               inputMode="numeric"
               autoFocus
