@@ -49,19 +49,19 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
               disappearsOnIndex={-1}
               appearsOnIndex={0}
               opacity={0.9}
-              style={tailwind('bg-zinc-900 top-0 bottom-0 left-0 right-0 absolute')}
+              style={tailwind('bg-zinc-950 top-0 bottom-0 left-0 right-0 absolute')}
               pressBehavior="close"
             />
           )}
           handleIndicatorStyle={tailwind('bg-zinc-200')}
-          backgroundStyle={tailwind('bg-zinc-950')}
+          backgroundStyle={tailwind('bg-zinc-900')}
         >
-          <View style={tailwind('bg-zinc-950 p-4')}>
+          <View style={tailwind('bg-zinc-900 p-4')}>
             <View style={tailwind('flex-row items-stretch')}>
-              <View style={tailwind('rounded bg-zinc-900 p-2')}>
+              <View style={tailwind('rounded bg-zinc-800 p-2')}>
                 <IconSet name="link" size={20} style={tailwind('text-zinc-200')} />
               </View>
-              <View style={tailwind('rounded bg-zinc-900 flex-grow px-3 ml-2 flex-row items-center')}>
+              <View style={tailwind('rounded bg-zinc-800 flex-grow px-3 ml-2 flex-row items-center')}>
                 <Text style={tailwind('text-base text-zinc-200')}>{url}</Text>
               </View>
             </View>
@@ -76,10 +76,9 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
                   await Linking.openURL(url!);
                   close();
                 }}
+                style={tailwind('rounded bg-zinc-200 px-5 py-2')}
               >
-                <View style={tailwind('rounded bg-zinc-200 px-4 py-2')}>
-                  <Text style={tailwind('text-zinc-800 font-bold text-base')}>Continue</Text>
-                </View>
+                <Text style={tailwind('text-zinc-800 font-bold text-lg')}>Continue</Text>
               </TouchableOpacity>
             </View>
           </View>

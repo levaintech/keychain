@@ -206,12 +206,11 @@ function SettingRowLink(props: RowProps): JSX.Element {
         external.open(props.to!);
         await haptic.impactAsync();
       }}
+      style={tailwind('px-6 bg-zinc-900 flex-row items-center')}
     >
-      <View style={tailwind('px-6 bg-zinc-900 flex-row items-center')}>
-        <View style={tailwind('py-3 flex-row items-center justify-between')}>
-          <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
-          <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
-        </View>
+      <View style={tailwind('py-3 flex-row items-center justify-between')}>
+        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
+        <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -229,15 +228,14 @@ function SettingRowSelect(props: RowProps): JSX.Element {
         await haptic.selectionAsync();
       }}
       testID={props.to}
+      style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}
     >
-      <View style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}>
-        <View style={tailwind('py-3 flex-row items-center justify-between')}>
-          <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
-          <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
-        </View>
-        <View>
-          <IconSet name="right" size={16} style={tailwind('text-zinc-500')} />
-        </View>
+      <View style={tailwind('py-3 flex-row items-center justify-between')}>
+        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
+        <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
+      </View>
+      <View>
+        <IconSet name="right" size={16} style={tailwind('text-zinc-500')} />
       </View>
     </TouchableOpacity>
   );

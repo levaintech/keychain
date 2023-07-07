@@ -114,10 +114,9 @@ export default function DesignSystemPage(): JSX.Element {
                 onPress={async () => {
                   await haptic.selectionAsync();
                 }}
+                style={tailwind('rounded bg-zinc-200 px-5 py-2')}
               >
-                <View style={tailwind('rounded bg-zinc-200 px-5 py-2')}>
-                  <Text style={tailwind('text-zinc-800 font-bold text-lg')}>Primary</Text>
-                </View>
+                <Text style={tailwind('text-zinc-800 font-bold text-lg')}>Primary</Text>
               </TouchableOpacity>
             </View>
 
@@ -126,10 +125,9 @@ export default function DesignSystemPage(): JSX.Element {
                 onPress={async () => {
                   await haptic.selectionAsync();
                 }}
+                style={tailwind('rounded bg-zinc-200 px-3.5 py-2')}
               >
-                <View style={tailwind('rounded bg-zinc-200 px-3.5 py-2')}>
-                  <Text style={tailwind('text-zinc-800 text-sm font-bold')}>Secondary</Text>
-                </View>
+                <Text style={tailwind('text-zinc-800 text-sm font-bold')}>Secondary</Text>
               </TouchableOpacity>
             </View>
           </Section>
@@ -170,15 +168,14 @@ export default function DesignSystemPage(): JSX.Element {
                     onPress={async () => {
                       await haptic.selectionAsync();
                     }}
+                    style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}
                   >
-                    <View style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}>
-                      <View style={tailwind('py-3 flex-row items-center justify-between')}>
-                        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
-                        <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
-                      </View>
-                      <View>
-                        <IconSet name="right" size={16} style={tailwind('text-zinc-500')} />
-                      </View>
+                    <View style={tailwind('py-3 flex-row items-center justify-between')}>
+                      <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
+                      <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
+                    </View>
+                    <View>
+                      <IconSet name="right" size={16} style={tailwind('text-zinc-500')} />
                     </View>
                   </TouchableOpacity>
                 );
