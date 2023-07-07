@@ -204,7 +204,7 @@ function SettingRowLink(props: RowProps): JSX.Element {
     <TouchableOpacity
       onPress={async () => {
         external.open(props.to!);
-        await haptic.impactAsync();
+        await haptic.selectionAsync();
       }}
       style={tailwind('px-6 bg-zinc-900 flex-row items-center')}
     >
