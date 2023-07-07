@@ -18,7 +18,7 @@ export default function SettingsTab(): JSX.Element {
         }}
       />
       <SectionList
-        style={tailwind('bg-zinc-900')}
+        style={tailwind('bg-zinc-950')}
         sections={[
           {
             title: 'KEYCHAIN',
@@ -28,7 +28,7 @@ export default function SettingsTab(): JSX.Element {
                 props: {
                   to: '/keys/settings',
                   icon: 'key',
-                  title: 'Key Settings',
+                  title: 'Keychain Settings',
                 },
               },
               {
@@ -107,7 +107,7 @@ export default function SettingsTab(): JSX.Element {
           },
         ]}
         renderSectionHeader={({ section }) => (
-          <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-zinc-900')}>{section.title}</Text>
+          <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-zinc-950')}>{section.title}</Text>
         )}
         renderItem={({ item }) => {
           switch (item.type) {
@@ -125,8 +125,8 @@ export default function SettingsTab(): JSX.Element {
         }}
         keyExtractor={(item) => item.type + item.props.title}
         ItemSeparatorComponent={() => (
-          <View style={tailwind('pl-12 bg-zinc-800')}>
-            <View style={tailwind('bg-zinc-900 opacity-40 w-full h-px')} />
+          <View style={tailwind('pl-12 bg-zinc-900')}>
+            <View style={tailwind('bg-zinc-950 opacity-60 w-full h-px')} />
           </View>
         )}
       />
@@ -156,7 +156,7 @@ function SettingRowVersion(props: RowProps): JSX.Element {
   })();
 
   return (
-    <View style={tailwind('px-6 bg-zinc-800 flex-row items-center justify-between')}>
+    <View style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}>
       <View style={tailwind('py-3 flex-row items-center justify-between')}>
         <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
         <Text style={tailwind('text-white text-base ml-2')}>
@@ -173,7 +173,7 @@ function SettingRowHaptic(props: RowProps): JSX.Element {
   const haptic = useHaptic();
 
   return (
-    <View style={tailwind('px-6 bg-zinc-800 flex-row items-center justify-between')}>
+    <View style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}>
       <View style={tailwind('flex-row py-3 items-center justify-between')}>
         <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
         <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
@@ -206,12 +206,11 @@ function SettingRowLink(props: RowProps): JSX.Element {
         external.open(props.to!);
         await haptic.impactAsync();
       }}
+      style={tailwind('px-6 bg-zinc-900 flex-row items-center')}
     >
-      <View style={tailwind('px-6 bg-zinc-800 flex-row items-center')}>
-        <View style={tailwind('py-3 flex-row items-center justify-between')}>
-          <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
-          <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
-        </View>
+      <View style={tailwind('py-3 flex-row items-center justify-between')}>
+        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
+        <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
       </View>
     </TouchableOpacity>
   );
@@ -229,15 +228,14 @@ function SettingRowSelect(props: RowProps): JSX.Element {
         await haptic.selectionAsync();
       }}
       testID={props.to}
+      style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}
     >
-      <View style={tailwind('px-6 bg-zinc-800 flex-row items-center justify-between')}>
-        <View style={tailwind('py-3 flex-row items-center justify-between')}>
-          <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
-          <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
-        </View>
-        <View>
-          <IconSet name="right" size={16} style={tailwind('text-zinc-500')} />
-        </View>
+      <View style={tailwind('py-3 flex-row items-center justify-between')}>
+        <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
+        <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
+      </View>
+      <View>
+        <IconSet name="right" size={16} style={tailwind('text-zinc-500')} />
       </View>
     </TouchableOpacity>
   );

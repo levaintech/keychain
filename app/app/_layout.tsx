@@ -39,8 +39,10 @@ function WebContainer(): JSX.Element {
 
 function AppContainer(): JSX.Element | null {
   const [loaded, error] = useFonts({
-    // eslint-disable-next-line global-require
+    /* eslint-disable global-require */
     AntDesign: require('../assets/fonts/AntDesign.ttf'),
+    JetBrainsMono: require('../assets/fonts/JetBrainsMono.ttf'),
+    /* eslint-enable global-require */
   });
 
   useEffect(() => {
@@ -53,12 +55,17 @@ function AppContainer(): JSX.Element | null {
     }
   }, [loaded]);
 
+  if (!loaded) {
+    return null;
+  }
+
   return (
     <SafeAreaProvider>
       <ThemeProvider value={DarkTheme}>
         <HapticFeedbackProvider>
           <ExternalLinkProvider>
             <Stack>
+              <Stack.Screen name="index" redirect />
               <Stack.Screen name="tabs" options={{ headerShown: false }} />
               <Stack.Screen name="sign" options={{ presentation: 'modal' }} />
               <Stack.Screen name="about/design" options={{ presentation: 'modal' }} />

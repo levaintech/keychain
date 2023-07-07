@@ -6,7 +6,7 @@ export default function ApiTab(): JSX.Element {
 
   return (
     <>
-      <View style={tailwind('flex-1 items-center justify-center bg-zinc-900')}>
+      <View style={tailwind('flex-1 items-center justify-center bg-zinc-950')}>
         <Text style={tailwind('text-center text-xl text-white')}>API Requests</Text>
       </View>
     </>

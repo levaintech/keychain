@@ -49,7 +49,7 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
               disappearsOnIndex={-1}
               appearsOnIndex={0}
               opacity={0.9}
-              style={tailwind('bg-zinc-900 top-0 bottom-0 left-0 right-0 absolute')}
+              style={tailwind('bg-zinc-950 top-0 bottom-0 left-0 right-0 absolute')}
               pressBehavior="close"
             />
           )}
@@ -76,10 +76,9 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
                   await Linking.openURL(url!);
                   close();
                 }}
+                style={tailwind('rounded bg-zinc-200 px-5 py-2')}
               >
-                <View style={tailwind('rounded bg-zinc-200 px-4 py-2')}>
-                  <Text style={tailwind('text-zinc-800 font-bold text-base')}>Continue</Text>
-                </View>
+                <Text style={tailwind('text-zinc-800 font-bold text-lg')}>Continue</Text>
               </TouchableOpacity>
             </View>
           </View>

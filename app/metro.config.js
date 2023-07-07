@@ -29,6 +29,9 @@ async function postCSS(watch) {
       corePlugins: require('tailwind-rn/unsupported-core-plugins'),
       content: ['./app/**/*.{js,jsx,ts,tsx}'],
       theme: {
+        fontFamily: {
+          mono: ['JetBrainsMono'],
+        },
         extend: {},
       },
       plugins: [],

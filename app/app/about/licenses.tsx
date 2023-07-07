@@ -1,5 +1,5 @@
 import { Stack, useRouter } from 'expo-router';
-import { Text, TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
 import { useHaptic } from '../HapticFeedback';
@@ -28,9 +28,7 @@ export default function LicensesPage(): JSX.Element {
           ),
         }}
       />
-      <View style={tailwind('flex-1 items-center justify-center bg-zinc-900')}>
-        <Text style={tailwind('text-center text-xl text-white')}>Licenses</Text>
-      </View>
+      <View style={tailwind('flex-1 items-center justify-center bg-zinc-950')}></View>
     </>
   );
 }
