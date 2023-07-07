@@ -182,8 +182,8 @@ function SettingRowHaptic(props: RowProps): JSX.Element {
         <Switch
           thumbColor={tailwind('text-zinc-200').color as any}
           trackColor={{
-            false: tailwind('text-teal-500').color as any,
-            true: tailwind('text-teal-500').color as any,
+            false: tailwind('text-teal-800').color as any,
+            true: tailwind('text-teal-800').color as any,
           }}
           onValueChange={async (value: boolean) => {
             await haptic.setEnabled(value);
