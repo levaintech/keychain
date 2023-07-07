@@ -8,7 +8,7 @@
     "lint": "eslint app",
     "playwright:open": "playwright install && playwright test --ui",
     "playwright:test": "playwright install && playwright test",
-    "start": "export METRO_CONFIG_JS_WATCH=true && expo start",
+    "start": "expo start",
     "version": "node version.mjs"
   },
   "lint-staged": {
