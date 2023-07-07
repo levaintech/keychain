@@ -64,14 +64,13 @@ function AppContainer(): JSX.Element | null {
       <ThemeProvider value={DarkTheme}>
         <HapticFeedbackProvider>
           <ExternalLinkProvider>
-            <Stack>
+            <Stack
+              screenOptions={{
+                presentation: 'modal',
+              }}
+            >
               <Stack.Screen name="index" redirect />
               <Stack.Screen name="tabs" options={{ headerShown: false }} />
-              <Stack.Screen name="sign" options={{ presentation: 'modal' }} />
-              <Stack.Screen name="about/design" options={{ presentation: 'modal' }} />
-              <Stack.Screen name="about/licenses" options={{ presentation: 'modal' }} />
-              <Stack.Screen name="api/settings" options={{ presentation: 'modal' }} />
-              <Stack.Screen name="keys/settings" options={{ presentation: 'modal' }} />
             </Stack>
           </ExternalLinkProvider>
         </HapticFeedbackProvider>
