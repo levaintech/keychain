@@ -1,3 +1,4 @@
+import { NotificationFeedbackType } from 'expo-haptics';
 import { ReactNode } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
@@ -97,7 +98,18 @@ export default function DesignSystemPage(): JSX.Element {
           </Section>
 
           <Section title="BUTTONS">
-            <View style={tailwind('flex-row mb-1')}>
+            <View style={tailwind('flex-row')}>
+              <TouchableOpacity
+                onPress={async () => {
+                  await haptic.notificationAsync(NotificationFeedbackType.Success);
+                }}
+                style={tailwind('rounded-full bg-zinc-200 px-8 py-3 w-full')}
+              >
+                <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>PRIMARY ACTION</Text>
+              </TouchableOpacity>
+            </View>
+
+            <View style={tailwind('flex-row justify-end mt-4')}>
               <TouchableOpacity
                 onPress={async () => {
                   await haptic.selectionAsync();
@@ -108,7 +120,7 @@ export default function DesignSystemPage(): JSX.Element {
               </TouchableOpacity>
             </View>
 
-            <View style={tailwind('flex-row mt-4')}>
+            <View style={tailwind('flex-row justify-end mt-4')}>
               <TouchableOpacity
                 onPress={async () => {
                   await haptic.selectionAsync();

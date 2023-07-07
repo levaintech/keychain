@@ -75,11 +75,11 @@ export default function KeysCreatePage(): JSX.Element {
 
           <TouchableOpacity
             onPress={async () => {
-              await haptic.selectionAsync();
+              await haptic.notificationAsync(NotificationFeedbackType.Success);
             }}
-            style={tailwind('rounded bg-zinc-200 px-5 py-2')}
+            style={tailwind('rounded-full bg-zinc-200 px-8 py-3 w-full')}
           >
-            <Text style={tailwind('text-zinc-800 font-bold text-lg')}>
+            <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>
               Generate {Number.parseInt(input, 10) > 1 ? `${input} Keys` : '1 Key'}
             </Text>
           </TouchableOpacity>
