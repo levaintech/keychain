@@ -1,37 +1,25 @@
-import { Stack, useRouter } from 'expo-router';
 import { ReactNode } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 import { useTailwind } from 'tailwind-rn';
 
+import { ModalStackScreen } from '../_components/ModalStackScreen';
 import { useHaptic } from '../HapticFeedback';
 import { IconSet, IconSetName } from '../IconSet';
 
 export default function DesignSystemPage(): JSX.Element {
   const tailwind = useTailwind();
   const haptic = useHaptic();
-  const router = useRouter();
 
   return (
     <>
-      <Stack.Screen
+      <ModalStackScreen
         options={{
           title: 'Design System',
-          headerStyle: tailwind('bg-zinc-900'),
-          headerRight: () => (
-            <TouchableOpacity
-              onPress={async () => {
-                await haptic.selectionAsync();
-                router.back();
-              }}
-            >
-              <IconSet name="close" size={24} style={tailwind('text-zinc-100')} />
-            </TouchableOpacity>
-          ),
         }}
       />
       <SafeAreaView style={tailwind('flex-1 bg-zinc-950')}>
-        <ScrollView>
+        <ScrollView contentContainerStyle={tailwind('py-2')}>
           <Section title="LEVAIN KEYCHAIN DESIGN SYSTEM">
             <Text style={tailwind('text-base text-zinc-200')}>
               A collection of open source rules, principles, and constraints that govern how we design and build Levain
@@ -54,15 +42,15 @@ export default function DesignSystemPage(): JSX.Element {
             </View>
 
             <View style={tailwind('flex-row items-center mt-4')}>
-              <View style={tailwind('rounded-full w-10 h-10 bg-teal-500')} />
+              <View style={tailwind('rounded-full w-10 h-10 bg-teal-800')} />
               <Text style={tailwind('text-lg font-bold text-zinc-200 mx-6')}>Accent</Text>
-              <Code>teal-500</Code>
+              <Code>teal-800</Code>
             </View>
 
             <View style={tailwind('flex-row items-center mt-4')}>
-              <View style={tailwind('rounded-full w-10 h-10 bg-zinc-900')} />
+              <View style={tailwind('rounded-full w-10 h-10 bg-zinc-950')} />
               <Text style={tailwind('text-lg font-bold text-zinc-200 mx-6')}>Background</Text>
-              <Code>zinc-900</Code>
+              <Code>zinc-950</Code>
             </View>
           </Section>
 
@@ -136,8 +124,8 @@ export default function DesignSystemPage(): JSX.Element {
               <Switch
                 thumbColor={tailwind('text-zinc-200').color as any}
                 trackColor={{
-                  false: tailwind('text-teal-500').color as any,
-                  true: tailwind('text-teal-500').color as any,
+                  false: tailwind('text-teal-800').color as any,
+                  true: tailwind('text-teal-800').color as any,
                 }}
                 onValueChange={async (value: boolean) => {
                   await haptic.setEnabled(value);
@@ -149,8 +137,8 @@ export default function DesignSystemPage(): JSX.Element {
                 style={tailwind('ml-4')}
                 thumbColor={tailwind('text-zinc-200').color as any}
                 trackColor={{
-                  false: tailwind('text-teal-500').color as any,
-                  true: tailwind('text-teal-500').color as any,
+                  false: tailwind('text-teal-800').color as any,
+                  true: tailwind('text-teal-800').color as any,
                 }}
                 ios_backgroundColor={tailwind('text-zinc-800').color as any}
                 onValueChange={async (value: boolean) => {
