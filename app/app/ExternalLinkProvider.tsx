@@ -54,14 +54,14 @@ export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
             />
           )}
           handleIndicatorStyle={tailwind('bg-zinc-200')}
-          backgroundStyle={tailwind('bg-zinc-900')}
+          backgroundStyle={tailwind('bg-zinc-950')}
         >
-          <View style={tailwind('bg-zinc-900 p-4')}>
+          <View style={tailwind('bg-zinc-950 p-4')}>
             <View style={tailwind('flex-row items-stretch')}>
-              <View style={tailwind('rounded bg-zinc-800 p-2')}>
+              <View style={tailwind('rounded bg-zinc-900 p-2')}>
                 <IconSet name="link" size={20} style={tailwind('text-zinc-200')} />
               </View>
-              <View style={tailwind('rounded bg-zinc-800 flex-grow px-3 ml-2 flex-row items-center')}>
+              <View style={tailwind('rounded bg-zinc-900 flex-grow px-3 ml-2 flex-row items-center')}>
                 <Text style={tailwind('text-base text-zinc-200')}>{url}</Text>
               </View>
             </View>

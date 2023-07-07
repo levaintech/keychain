@@ -1,15 +1,19 @@
-import { Text, TouchableOpacity, View } from 'react-native';
+import { Stack } from 'expo-router';
+import { useState } from 'react';
+import { Animated, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
 import { useHaptic } from '../HapticFeedback';
 import { IconSet, IconSetName } from '../IconSet';
+import FlatList = Animated.FlatList;
 
 export default function KeychainTab(): JSX.Element {
-  return (
-    <>
-      <KeychainOnboarding />
-    </>
-  );
+  const [onboarding] = useState(false);
+  if (onboarding) {
+    return <KeychainOnboarding />;
+  }
+
+  return <KeychainListView />;
 }
 
 function KeychainOnboarding(): JSX.Element {
@@ -17,8 +21,8 @@ function KeychainOnboarding(): JSX.Element {
   const haptic = useHaptic();
 
   return (
-    <View style={tailwind('flex-1 flex-col items-center justify-center bg-zinc-900')}>
-      <View style={tailwind('p-8 bg-zinc-800 rounded-md')}>
+    <View style={tailwind('flex-1 flex-col items-center justify-center bg-zinc-950')}>
+      <View style={tailwind('p-8 bg-zinc-900 rounded-md')}>
         <IconSet name="key" size={64} color="white" />
       </View>
 
@@ -55,7 +59,7 @@ function KeychainOnboarding(): JSX.Element {
   }): JSX.Element {
     return (
       <TouchableOpacity style={tailwind('px-6 py-2')} onPress={props.onPress}>
-        <View style={tailwind('bg-zinc-800 flex-row items-center py-3 px-4 rounded')}>
+        <View style={tailwind('bg-zinc-900 flex-row items-center py-3 px-4 rounded')}>
           <View style={tailwind('p-2 bg-zinc-900 rounded mr-4')}>
             <IconSet name={props.icon} size={24} style={tailwind('text-zinc-200')} />
           </View>
@@ -65,6 +69,72 @@ function KeychainOnboarding(): JSX.Element {
               <Text style={tailwind('text-sm text-zinc-200 flex-1 flex-wrap')}>{props.caption}</Text>
             </View>
           </View>
+        </View>
+      </TouchableOpacity>
+    );
+  }
+}
+
+function KeychainListView(): JSX.Element {
+  const tailwind = useTailwind();
+  const haptic = useHaptic();
+
+  return (
+    <>
+      <Stack.Screen
+        options={{
+          headerStyle: tailwind('bg-zinc-900'),
+          headerRight: () => (
+            <TouchableOpacity
+              style={tailwind('px-4 py-2')}
+              onPress={async () => {
+                await haptic.selectionAsync();
+                // router.back();
+              }}
+            >
+              <IconSet name="plus" size={24} style={tailwind('text-zinc-100')} />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <FlatList
+        style={tailwind('flex-1 bg-zinc-950')}
+        data={[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]}
+        renderItem={({ item }) => <KeychainKeyRow data={item} />}
+      />
+    </>
+  );
+
+  function KeychainKeyRow(props: { data: number }): JSX.Element {
+    const colors = [
+      'bg-red-950',
+      'bg-yellow-950',
+      'bg-lime-950',
+      'bg-teal-950',
+      'bg-sky-950',
+      'bg-blue-950',
+      'bg-violet-950',
+      'bg-fuchsia-950',
+    ];
+
+    return (
+      <TouchableOpacity
+        onPress={async () => {
+          await haptic.selectionAsync();
+        }}
+        style={tailwind('px-4 py-2 flex-row items-center')}
+      >
+        <View
+          style={{
+            ...tailwind('bg-zinc-900 rounded-sm mr-3 bg-red-950 p-3'),
+            ...tailwind(colors[props.data % Object.keys(colors).length]),
+          }}
+        >
+          <IconSet name="key" size={28} style={tailwind('text-zinc-200')} />
+        </View>
+        <View>
+          <Text style={tailwind('text-lg font-bold text-zinc-200')}>Key #{props.data}</Text>
+          <Text style={tailwind('text-sm text-zinc-200 font-mono')}>4c8926b4-8a4e15fc</Text>
         </View>
       </TouchableOpacity>
     );

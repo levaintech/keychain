@@ -1,5 +1,5 @@
 import { Stack, useRouter } from 'expo-router';
-import { TouchableOpacity, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
 import { useHaptic } from '../HapticFeedback';
@@ -14,7 +14,7 @@ export default function KeySettingsPage(): JSX.Element {
     <>
       <Stack.Screen
         options={{
-          title: 'Keys Settings',
+          title: 'Keychain Settings',
           headerStyle: tailwind('bg-zinc-900'),
           headerRight: () => (
             <TouchableOpacity
@@ -28,7 +28,6 @@ export default function KeySettingsPage(): JSX.Element {
           ),
         }}
       />
-      <View style={tailwind('flex-1 items-center justify-center bg-zinc-900')}></View>
     </>
   );
 }

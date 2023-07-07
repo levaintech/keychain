@@ -30,7 +30,7 @@ export default function DesignSystemPage(): JSX.Element {
           ),
         }}
       />
-      <SafeAreaView style={tailwind('flex-1 bg-zinc-900')}>
+      <SafeAreaView style={tailwind('flex-1 bg-zinc-950')}>
         <ScrollView>
           <Section title="LEVAIN KEYCHAIN DESIGN SYSTEM">
             <Text style={tailwind('text-base text-zinc-200')}>
@@ -83,6 +83,10 @@ export default function DesignSystemPage(): JSX.Element {
               <Text style={tailwind('text-sm text-zinc-200')}>Caption</Text>
               <Code>text-sm text-zinc-200</Code>
             </View>
+            <View style={tailwind('mt-2')}>
+              <Text style={tailwind('text-sm text-zinc-200 font-mono')}>Font-Mono</Text>
+              <Code>text-sm text-zinc-200 font-mono</Code>
+            </View>
           </Section>
 
           <Section title="ICONS">
@@ -111,8 +115,8 @@ export default function DesignSystemPage(): JSX.Element {
                   await haptic.selectionAsync();
                 }}
               >
-                <View style={tailwind('rounded bg-zinc-200 px-4 py-2')}>
-                  <Text style={tailwind('text-zinc-800 font-bold text-base')}>Primary</Text>
+                <View style={tailwind('rounded bg-zinc-200 px-5 py-2')}>
+                  <Text style={tailwind('text-zinc-800 font-bold text-lg')}>Primary</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -123,8 +127,8 @@ export default function DesignSystemPage(): JSX.Element {
                   await haptic.selectionAsync();
                 }}
               >
-                <View style={tailwind('rounded bg-zinc-200 px-3 py-1.5')}>
-                  <Text style={tailwind('text-zinc-700 text-sm font-medium')}>Secondary</Text>
+                <View style={tailwind('rounded bg-zinc-200 px-3.5 py-2')}>
+                  <Text style={tailwind('text-zinc-800 text-sm font-bold')}>Secondary</Text>
                 </View>
               </TouchableOpacity>
             </View>
@@ -158,7 +162,7 @@ export default function DesignSystemPage(): JSX.Element {
               />
             </View>
           </Section>
-          <Section title="LIST VIEW" innerStyle={tailwind('p-4 bg-zinc-700')}>
+          <Section title="LIST VIEW" innerStyle={tailwind('bg-zinc-900')}>
             {(() => {
               function ListViewItem(props: { title: string; subtitle: string; icon: IconSetName }): JSX.Element {
                 return (
@@ -167,7 +171,7 @@ export default function DesignSystemPage(): JSX.Element {
                       await haptic.selectionAsync();
                     }}
                   >
-                    <View style={tailwind('px-6 bg-zinc-800 flex-row items-center justify-between')}>
+                    <View style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}>
                       <View style={tailwind('py-3 flex-row items-center justify-between')}>
                         <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
                         <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
@@ -183,11 +187,11 @@ export default function DesignSystemPage(): JSX.Element {
               return (
                 <View style={tailwind('')}>
                   <ListViewItem title="Item 1" subtitle="" icon="filetext1" />
-                  <View style={tailwind('pl-12 bg-zinc-800')}>
-                    <View style={tailwind('bg-zinc-900 opacity-40 w-full h-px')} />
+                  <View style={tailwind('pl-12 bg-zinc-900')}>
+                    <View style={tailwind('bg-zinc-950 opacity-60 w-full h-px')} />
                   </View>
                   <ListViewItem title="Item 2" subtitle="" icon="infocirlceo" />
-                  <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-zinc-900')}>SECTION</Text>
+                  <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-zinc-950')}>SECTION</Text>
                   <ListViewItem title="Item 3" subtitle="" icon="retweet" />
                 </View>
               );
@@ -204,8 +208,8 @@ function Section(props: { title: string; children?: ReactNode; innerStyle?: Styl
 
   return (
     <View style={tailwind('px-4 py-2')}>
-      <View style={tailwind('bg-zinc-800 rounded')}>
-        <View style={tailwind('py-3 px-4 border-b border-zinc-700')}>
+      <View style={tailwind('bg-zinc-900 rounded')}>
+        <View style={tailwind('py-3 px-4 border-b border-zinc-800')}>
           <Text style={tailwind('text-xs text-zinc-200')}>{props.title}</Text>
         </View>
         <View style={props.innerStyle ?? tailwind('p-4')}>{props.children}</View>
@@ -219,7 +223,7 @@ function Code(props: { children: string }): JSX.Element {
 
   return (
     <View>
-      <Text style={tailwind('text-sm text-zinc-100')}>{props.children}</Text>
+      <Text style={tailwind('text-sm text-zinc-200 font-mono')}>{props.children}</Text>
     </View>
   );
 }

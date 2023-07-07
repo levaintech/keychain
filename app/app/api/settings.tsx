@@ -29,7 +29,7 @@ export default function ApiSettingsPage(): JSX.Element {
           ),
         }}
       />
-      <View style={tailwind('flex-1 items-center justify-center bg-zinc-900')}></View>
+      <View style={tailwind('flex-1 items-center justify-center bg-zinc-950')}></View>
     </>
   );
 }
