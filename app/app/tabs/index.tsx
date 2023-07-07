@@ -1,4 +1,4 @@
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Animated, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
@@ -77,6 +77,7 @@ function KeychainOnboarding(): JSX.Element {
 
 function KeychainListView(): JSX.Element {
   const tailwind = useTailwind();
+  const router = useRouter();
   const haptic = useHaptic();
 
   return (
@@ -89,7 +90,7 @@ function KeychainListView(): JSX.Element {
               style={tailwind('px-4 py-2')}
               onPress={async () => {
                 await haptic.selectionAsync();
-                // router.back();
+                router.push('/keys/create');
               }}
             >
               <IconSet name="plus" size={24} style={tailwind('text-zinc-100')} />
