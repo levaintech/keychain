@@ -8,13 +8,12 @@ const tailwind = require('tailwindcss');
 const postcss = require('postcss');
 
 /**
- * METRO_CONFIG_JS_WATCH=true will enable watch mode that rebuild tailwind.json on file changes.
- * export METRO_CONFIG_JS_WATCH=true && expo start
+ * NODE_ENV=development will enable watch mode that rebuilds tailwind.json on file changes.
  */
 module.exports = (async () => {
   const config = getDefaultConfig(__dirname);
   config.resolver.blockList = /^.+\.e2e\.ts$/;
-  await postCSS(process.env.METRO_CONFIG_JS_WATCH === 'true');
+  await postCSS(process.env.NODE_ENV === 'development');
   return config;
 })();
 
