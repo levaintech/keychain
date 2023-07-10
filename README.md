@@ -117,6 +117,18 @@ enable an attacker to abscond with the user's assets. By disabling OTA updates, 
 protection, fortifying our defenses and mitigating the risk of such breaches. Your security is our topmost priority, and
 we continuously review and update our practices to ensure we are aligned with the best and safest industry standards.
 
+### Prioritizing Safety & Control
+
+We're dedicated to offering a secure and dependable system, acknowledging that end users, individuals using our app,
+hold ultimate responsibility for their own security. This is because users exclusively control their devices and thus
+their keys. In most cases, the user can be seen as the most vulnerable point in the security chain due to their autonomy
+over system use.
+
+While we don't have control over a user's device or their usage habits, we empower users with the necessary tools and
+knowledge to navigate our app securely. We achieve this by offering comprehensive in-app documentation that outlines
+each feature and guidance for safe use. Moreover, we also insist upon a set of best practices each user must adhere to,
+thereby ensuring they utilize our app safely.
+
 ## License & Disclaimer
 
 By using the `levaintech/keychain` repository, you (the user) agree to be bound by the terms of the
