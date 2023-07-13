@@ -77,6 +77,7 @@ function AppContainer(): ReactElement | null {
             >
               <Stack.Screen name="index" redirect />
               <Stack.Screen name="tabs" options={{ headerShown: false }} />
+              <Stack.Screen name="keys/setup" options={{ headerShown: false }} />
             </Stack>
           </ExternalLinkProvider>
         </HapticFeedbackProvider>

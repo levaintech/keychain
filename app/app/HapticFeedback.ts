@@ -23,6 +23,8 @@ interface HapticFeedbackOptions {
   impactAsync(style?: ImpactFeedbackStyle): Promise<void>;
 }
 
+export { ImpactFeedbackStyle, NotificationFeedbackType };
+
 const HapticFeedbackContext = createContext<HapticFeedbackOptions>({} as any);
 
 /**

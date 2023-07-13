@@ -18,6 +18,7 @@ export default function KeychainTab(): ReactElement {
 
 function KeychainOnboarding(): ReactElement {
   const tailwind = useTailwind();
+  const router = useRouter();
   const haptic = useHaptic();
 
   return (
@@ -35,6 +36,7 @@ function KeychainOnboarding(): ReactElement {
           <View style={tailwind('mt-4 w-full')}>
             <CreateButton
               onPress={async () => {
+                router.push('/keys/setup/generate');
                 await haptic.selectionAsync();
               }}
               icon="calculator"
@@ -43,6 +45,7 @@ function KeychainOnboarding(): ReactElement {
             />
             <CreateButton
               onPress={async () => {
+                router.push('/keys/setup/import');
                 await haptic.selectionAsync();
               }}
               icon="upload"

@@ -108,7 +108,7 @@ export default function SettingsTab(): ReactElement {
           },
         ]}
         renderSectionHeader={({ section }) => (
-          <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-zinc-950')}>{section.title}</Text>
+          <Text style={tailwind('pt-8 pb-2 px-6 text-zinc-300 bg-zinc-950')}>{section.title}</Text>
         )}
         renderItem={({ item }) => {
           switch (item.type) {
