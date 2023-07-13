@@ -8,5 +8,6 @@ yarn.lock
 .contented
 .expo
 .turbo
-app/playwright
+.playwright
+app/dist
 app/tailwind.json

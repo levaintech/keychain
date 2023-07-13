@@ -27,13 +27,13 @@ export default defineConfig({
   // Opt out of parallel tests on CI.
   workers: process.env.CI ? 1 : undefined,
 
-  outputDir: './playwright/test-results',
+  outputDir: './.playwright/test-results',
 
   // Reporter to use
   reporter: [
     // For GitHub Actions CI to generate annotations
     ['github'],
-    ['html', { outputFolder: './playwright/test-report' }],
+    ['html', { outputFolder: './.playwright/test-report' }],
   ],
 
   use: {
