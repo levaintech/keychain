@@ -1,6 +1,8 @@
+import { ReactElement } from 'react';
+
 import { ModalStackScreen } from '../_components/ModalStackScreen';
 
-export default function ApiSettingsPage(): JSX.Element {
+export default function ApiSettingsPage(): ReactElement {
   return (
     <>
       <ModalStackScreen

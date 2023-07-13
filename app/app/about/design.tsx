@@ -1,5 +1,5 @@
 import { NotificationFeedbackType } from 'expo-haptics';
-import { ReactNode } from 'react';
+import { ReactElement, ReactNode } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 import { useTailwind } from 'tailwind-rn';
@@ -8,7 +8,7 @@ import { ModalStackScreen } from '../_components/ModalStackScreen';
 import { useHaptic } from '../HapticFeedback';
 import { IconSet, IconSetName } from '../IconSet';
 
-export default function DesignSystemPage(): JSX.Element {
+export default function DesignSystemPage(): ReactElement {
   const tailwind = useTailwind();
   const haptic = useHaptic();
 
@@ -162,7 +162,7 @@ export default function DesignSystemPage(): JSX.Element {
           </Section>
           <Section title="LIST VIEW" innerStyle={tailwind('bg-zinc-900')}>
             {(() => {
-              function ListViewItem(props: { title: string; subtitle: string; icon: IconSetName }): JSX.Element {
+              function ListViewItem(props: { title: string; subtitle: string; icon: IconSetName }): ReactElement {
                 return (
                   <TouchableOpacity
                     onPress={async () => {
@@ -200,7 +200,7 @@ export default function DesignSystemPage(): JSX.Element {
   );
 }
 
-function Section(props: { title: string; children?: ReactNode; innerStyle?: StyleProp<ViewStyle> }): JSX.Element {
+function Section(props: { title: string; children?: ReactNode; innerStyle?: StyleProp<ViewStyle> }): ReactElement {
   const tailwind = useTailwind();
 
   return (
@@ -215,7 +215,7 @@ function Section(props: { title: string; children?: ReactNode; innerStyle?: Styl
   );
 }
 
-function Code(props: { children: string }): JSX.Element {
+function Code(props: { children: string }): ReactElement {
   const tailwind = useTailwind();
 
   return (

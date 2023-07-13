@@ -1,6 +1,6 @@
 import { BottomSheetBackdrop, BottomSheetModal, BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import * as Linking from 'expo-linking';
-import { createContext, PropsWithChildren, useCallback, useContext, useRef, useState } from 'react';
+import { createContext, PropsWithChildren, ReactElement, useCallback, useContext, useRef, useState } from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
@@ -15,7 +15,7 @@ export interface ExternalLinkOptions {
 
 const ExternalLinkContext = createContext<ExternalLinkOptions>({} as any);
 
-export function ExternalLinkProvider(props: PropsWithChildren): JSX.Element {
+export function ExternalLinkProvider(props: PropsWithChildren): ReactElement {
   const tailwind = useTailwind();
   const modalRef = useRef<BottomSheetModal>(null);
   const [url, setUrl] = useState<string | undefined>(undefined);

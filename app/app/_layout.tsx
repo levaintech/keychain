@@ -2,7 +2,7 @@ import { DarkTheme, ThemeProvider } from '@react-navigation/native';
 import { useFonts } from 'expo-font';
 import { SplashScreen, Stack } from 'expo-router';
 import { setStatusBarStyle } from 'expo-status-bar';
-import { useEffect } from 'react';
+import { ReactElement, useEffect } from 'react';
 import { Platform, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { TailwindProvider, useTailwind } from 'tailwind-rn';
@@ -14,7 +14,7 @@ import { HapticFeedbackProvider } from './HapticFeedback';
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
 
-export default function Layout(): JSX.Element {
+export default function Layout(): ReactElement {
   return (
     // @ts-ignore because TailwindProvider is not typed correctly
     <TailwindProvider utilities={utilities}>
@@ -23,7 +23,7 @@ export default function Layout(): JSX.Element {
   );
 }
 
-function WebContainer(): JSX.Element {
+function WebContainer(): ReactElement {
   const tailwind = useTailwind();
   if (Platform.OS === 'web') {
     return (
@@ -37,7 +37,7 @@ function WebContainer(): JSX.Element {
   return <AppContainer />;
 }
 
-function AppContainer(): JSX.Element | null {
+function AppContainer(): ReactElement | null {
   const [loaded, error] = useFonts({
     /* eslint-disable global-require */
     AntDesign: require('../assets/fonts/AntDesign.ttf'),
