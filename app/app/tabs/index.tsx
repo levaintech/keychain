@@ -1,5 +1,5 @@
 import { Stack, useRouter } from 'expo-router';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { Animated, SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
@@ -7,7 +7,7 @@ import { useHaptic } from '../HapticFeedback';
 import { IconSet, IconSetName } from '../IconSet';
 import FlatList = Animated.FlatList;
 
-export default function KeychainTab(): JSX.Element {
+export default function KeychainTab(): ReactElement {
   const [onboarding] = useState(false);
   if (!onboarding) {
     return <KeychainOnboarding />;
@@ -16,7 +16,7 @@ export default function KeychainTab(): JSX.Element {
   return <KeychainListView />;
 }
 
-function KeychainOnboarding(): JSX.Element {
+function KeychainOnboarding(): ReactElement {
   const tailwind = useTailwind();
   const haptic = useHaptic();
 
@@ -60,7 +60,7 @@ function KeychainOnboarding(): JSX.Element {
     title: string;
     caption: string;
     icon: IconSetName;
-  }): JSX.Element {
+  }): ReactElement {
     return (
       <TouchableOpacity style={tailwind('mt-4')} onPress={props.onPress}>
         <View style={tailwind('bg-zinc-900 flex-row items-center py-3 px-4 rounded')}>
@@ -77,7 +77,7 @@ function KeychainOnboarding(): JSX.Element {
   }
 }
 
-function KeychainListView(): JSX.Element {
+function KeychainListView(): ReactElement {
   const tailwind = useTailwind();
   const router = useRouter();
   const haptic = useHaptic();
@@ -109,7 +109,7 @@ function KeychainListView(): JSX.Element {
     </>
   );
 
-  function KeychainKeyRow(props: { data: number }): JSX.Element {
+  function KeychainKeyRow(props: { data: number }): ReactElement {
     const colors = [
       'bg-red-950',
       'bg-yellow-950',

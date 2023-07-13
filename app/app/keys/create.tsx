@@ -1,5 +1,5 @@
 import { NotificationFeedbackType } from 'expo-haptics';
-import { useState } from 'react';
+import { ReactElement, useState } from 'react';
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
@@ -7,7 +7,7 @@ import { ModalStackScreen } from '../_components/ModalStackScreen';
 import { useHaptic } from '../HapticFeedback';
 import { IconSet } from '../IconSet';
 
-export default function KeysCreatePage(): JSX.Element {
+export default function KeysCreatePage(): ReactElement {
   const tailwind = useTailwind();
   const haptic = useHaptic();
   const [input, setInput] = useState('1');

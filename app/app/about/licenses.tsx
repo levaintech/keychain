@@ -1,6 +1,8 @@
+import { ReactElement } from 'react';
+
 import { ModalStackScreen } from '../_components/ModalStackScreen';
 
-export default function LicensesPage(): JSX.Element {
+export default function LicensesPage(): ReactElement {
   return (
     <>
       <ModalStackScreen

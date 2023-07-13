@@ -1,11 +1,11 @@
 import { Tabs } from 'expo-router';
-import { ComponentProps } from 'react';
+import { ComponentProps, ReactElement } from 'react';
 import { useTailwind } from 'tailwind-rn';
 
 import { useHaptic } from '../HapticFeedback';
 import { IconSet, IconSetName } from '../IconSet';
 
-export default function TabsLayout(): JSX.Element {
+export default function TabsLayout(): ReactElement {
   const tailwind = useTailwind();
   const haptic = useHaptic();
 

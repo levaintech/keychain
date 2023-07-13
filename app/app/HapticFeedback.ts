@@ -6,7 +6,7 @@ import {
   NotificationFeedbackType,
   selectionAsync,
 } from 'expo-haptics';
-import { createContext, createElement, PropsWithChildren, useContext, useEffect, useState } from 'react';
+import { createContext, createElement, PropsWithChildren, ReactElement, useContext, useEffect, useState } from 'react';
 import { Platform } from 'react-native';
 
 interface HapticFeedbackOptions {
@@ -32,7 +32,7 @@ export function useHaptic(): HapticFeedbackOptions {
   return useContext(HapticFeedbackContext);
 }
 
-export function HapticFeedbackProvider(props: PropsWithChildren<any>): JSX.Element | null {
+export function HapticFeedbackProvider(props: PropsWithChildren<any>): ReactElement | null {
   const isAvailable = Platform.OS === 'ios' || Platform.OS === 'android';
   const [isEnabled, setEnabled] = useState(false);
 

@@ -1,7 +1,8 @@
+import { ReactElement } from 'react';
 import { Text, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-export default function SignPage(): JSX.Element {
+export default function SignPage(): ReactElement {
   const tailwind = useTailwind();
 
   return (

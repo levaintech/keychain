@@ -1,13 +1,13 @@
 import classNames from 'classnames';
 import { Stack, useRouter } from 'expo-router';
-import { ComponentProps } from 'react';
+import { ComponentProps, ReactElement } from 'react';
 import { Platform, TouchableOpacity } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
 import { useHaptic } from '../HapticFeedback';
 import { IconSet } from '../IconSet';
 
-export function ModalStackScreen(props: { options: ComponentProps<typeof Stack.Screen>['options'] }): JSX.Element {
+export function ModalStackScreen(props: { options: ComponentProps<typeof Stack.Screen>['options'] }): ReactElement {
   const tailwind = useTailwind();
   const haptic = useHaptic();
   const router = useRouter();
@@ -27,7 +27,7 @@ export function ModalStackScreen(props: { options: ComponentProps<typeof Stack.S
   /**
    * For use in a modal header, this component provides a close button with variable padding based on platform.
    */
-  function HeaderRight(): JSX.Element {
+  function HeaderRight(): ReactElement {
     return (
       <TouchableOpacity
         onPress={async () => {

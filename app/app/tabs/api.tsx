@@ -1,7 +1,8 @@
+import { ReactElement } from 'react';
 import { Text, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-export default function ApiTab(): JSX.Element {
+export default function ApiTab(): ReactElement {
   const tailwind = useTailwind();
 
   return (

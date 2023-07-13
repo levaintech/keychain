@@ -1,3 +1,5 @@
-export default function App(): JSX.Element {
+import { ReactElement } from 'react';
+
+export default function App(): ReactElement {
   return <></>;
 }

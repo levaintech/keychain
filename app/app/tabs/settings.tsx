@@ -1,5 +1,6 @@
 import { nativeApplicationVersion } from 'expo-application';
 import { Stack, useRouter } from 'expo-router';
+import { ReactElement } from 'react';
 import { Platform, SectionList, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
@@ -7,7 +8,7 @@ import { useExternalLink } from '../ExternalLinkProvider';
 import { useHaptic } from '../HapticFeedback';
 import { IconSet } from '../IconSet';
 
-export default function SettingsTab(): JSX.Element {
+export default function SettingsTab(): ReactElement {
   const tailwind = useTailwind();
 
   return (
@@ -140,7 +141,7 @@ interface RowProps {
   title: string;
 }
 
-function SettingRowVersion(props: RowProps): JSX.Element {
+function SettingRowVersion(props: RowProps): ReactElement {
   const tailwind = useTailwind();
   const platform: string = (() => {
     switch (Platform.OS) {
@@ -168,7 +169,7 @@ function SettingRowVersion(props: RowProps): JSX.Element {
   );
 }
 
-function SettingRowHaptic(props: RowProps): JSX.Element {
+function SettingRowHaptic(props: RowProps): ReactElement {
   const tailwind = useTailwind();
   const haptic = useHaptic();
 
@@ -195,7 +196,7 @@ function SettingRowHaptic(props: RowProps): JSX.Element {
   );
 }
 
-function SettingRowLink(props: RowProps): JSX.Element {
+function SettingRowLink(props: RowProps): ReactElement {
   const tailwind = useTailwind();
   const external = useExternalLink();
   const haptic = useHaptic();
@@ -216,7 +217,7 @@ function SettingRowLink(props: RowProps): JSX.Element {
   );
 }
 
-function SettingRowSelect(props: RowProps): JSX.Element {
+function SettingRowSelect(props: RowProps): ReactElement {
   const tailwind = useTailwind();
   const router = useRouter();
   const haptic = useHaptic();
