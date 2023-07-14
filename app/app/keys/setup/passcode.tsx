@@ -83,7 +83,7 @@ export default function SetupPasscodePage(): ReactElement {
             <PrimaryActionButton
               disabled={state.correctCount < 2}
               onPress={async () => {
-                await router.push('keys/setup/settings');
+                await router.push('keys/setup/safety');
               }}
             >
               Continue
