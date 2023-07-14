@@ -37,11 +37,12 @@ async function postCSS(watch) {
     }),
   ]);
 
+  const filePath = path.join(__dirname, 'tailwind.json');
   async function process() {
-    const result = processor.process(`@tailwind utilities;`);
+    const result = await processor.process(`@tailwind utilities;`);
     const utilities = tailwindrn(result.css);
-    const content = JSON.stringify(utilities, null, '\t');
-    await fs.writeFile(path.join(__dirname, 'tailwind.json'), content);
+    const content = JSON.stringify(utilities);
+    await fs.writeFile(filePath, content);
   }
 
   await process();
