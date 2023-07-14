@@ -23,38 +23,35 @@ export default function GeneratePage(): ReactElement {
         }}
       />
       <SafeAreaView style={tailwind('flex-1 bg-zinc-950')}>
-        <ScrollView contentContainerStyle={tailwind('py-6')}>
-          <View style={tailwind('flex-row items-center justify-between mx-6 mb-2')}>
-            <Text style={tailwind('text-lg font-bold text-zinc-200')}>Keychain Mnemonic (BIP39)</Text>
-            <TouchableOpacity
-              onPress={async () => {
-                await haptic.notificationAsync(NotificationFeedbackType.Success);
-              }}
-            >
-              <IconSet name="reload1" size={20} style={tailwind('text-zinc-100')} />
-            </TouchableOpacity>
+        <ScrollView contentContainerStyle={tailwind('py-6 flex-grow justify-between')}>
+          <View>
+            <View style={tailwind('flex-row items-center justify-between mx-6 mb-2')}>
+              <Text style={tailwind('text-lg font-bold text-zinc-200')}>Keychain Mnemonic (BIP39)</Text>
+              <TouchableOpacity
+                onPress={async () => {
+                  await haptic.notificationAsync(NotificationFeedbackType.Success);
+                }}
+              >
+                <IconSet name="reload1" size={20} style={tailwind('text-zinc-100')} />
+              </TouchableOpacity>
+            </View>
+            <TextInput
+              editable={false}
+              multiline
+              secureTextEntry
+              value={sentence}
+              style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 rounded h-48')}
+            />
+            <Text style={tailwind('text-sm text-zinc-500 mx-6 mt-2')}>
+              Write down your mnemonic phrase and keep it in a safe place. You will need it to recover your wallet. You
+              will be asked to confirm your mnemonic phrase in the next step.
+            </Text>
           </View>
-          <TextInput
-            editable={false}
-            multiline
-            secureTextEntry
-            value={sentence}
-            style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 rounded h-48')}
-          />
-          <Text style={tailwind('text-sm text-zinc-500 mx-6 mt-2')}>
-            Write down your mnemonic phrase and keep it in a safe place. You will need it to recover your wallet. You
-            will be asked to confirm your mnemonic phrase in the next step.
-          </Text>
 
-          <View style={tailwind('m-6')}>
+          <View style={tailwind('mx-6')}>
             <PrimaryActionButton
               onPress={async () => {
-                await router.push({
-                  pathname: 'keys/setup/confirm',
-                  params: {
-                    sentence,
-                  },
-                });
+                await router.push('keys/setup/confirm');
               }}
             >
               Continue

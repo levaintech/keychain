@@ -1,10 +1,10 @@
-import { Stack } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 import { ReactElement } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-import { NotificationFeedbackType, useHaptic } from '../HapticFeedback';
-import { IconSet, IconSetName } from '../IconSet';
+import { NotificationFeedbackType, useHaptic } from '../../HapticFeedback';
+import { IconSet, IconSetName } from '../../IconSet';
 
 export default function KeySettingsPage(): ReactElement {
   const tailwind = useTailwind();
@@ -20,7 +20,7 @@ export default function KeySettingsPage(): ReactElement {
       <SafeAreaView style={tailwind('flex-1 bg-zinc-950')}>
         <ScrollView contentContainerStyle={tailwind('py-6')}>
           <Text style={tailwind('py-3 px-6 text-zinc-300 bg-zinc-950')}>SECURITY</Text>
-          <KeychainSettingRowPassword />
+          <KeychainSettingRowPasscode />
           <Text style={tailwind('py-3 px-6 text-zinc-300 bg-zinc-950')}>BIP32 & BIP39</Text>
           <KeychainSettingRowBip32Scheme />
           <KeychainSettingRowDivider />
@@ -53,18 +53,17 @@ export function KeychainSettingRowBip32Hardened(): ReactElement {
       title="BIP32 Hardened"
       icon="Safety"
       description="Restrict keychain to hardened derivation paths. This secure your keychain by preventing child keys from being used to derive the parent key."
+      onPress={() => haptic.notificationAsync(NotificationFeedbackType.Error)}
     >
-      <TouchableOpacity onPress={() => haptic.notificationAsync(NotificationFeedbackType.Error)}>
-        <Switch
-          disabled
-          value
-          thumbColor={tailwind('text-zinc-200').color as any}
-          trackColor={{
-            false: tailwind('text-teal-800').color as any,
-            true: tailwind('text-teal-800').color as any,
-          }}
-        />
-      </TouchableOpacity>
+      <Switch
+        disabled
+        value
+        thumbColor={tailwind('text-zinc-200').color as any}
+        trackColor={{
+          false: tailwind('text-teal-800').color as any,
+          true: tailwind('text-teal-800').color as any,
+        }}
+      />
     </KeychainSettingRow>
   );
 }
@@ -93,16 +92,22 @@ export function KeychainSettingRowMaxLength(): ReactElement {
   );
 }
 
-export function KeychainSettingRowPassword(): ReactElement {
+export function KeychainSettingRowPasscode(): ReactElement {
   const tailwind = useTailwind();
+  const haptic = useHaptic();
+  const router = useRouter();
 
   return (
     <KeychainSettingRow
-      title="Keychain Password"
+      title="Keychain Passcode"
       icon="lock1"
       description="This is not the same as your BIP39 passphrase. This password is used to decrypt the keychain from the device's secure keystore after the app is unlocked."
+      onPress={async () => {
+        await haptic.selectionAsync();
+        await router.push('keys/settings/passcode');
+      }}
     >
-      <Text style={tailwind('text-lg h-6 font-medium text-zinc-200 opacity-60')}>********</Text>
+      <Text style={tailwind('text-lg h-6 font-medium text-zinc-200 opacity-60')}>******</Text>
     </KeychainSettingRow>
   );
 }
@@ -121,17 +126,22 @@ function KeychainSettingRow(props: {
   icon: IconSetName;
   description?: string;
   children: ReactElement;
+  onPress?: () => void;
 }): ReactElement {
   const tailwind = useTailwind();
   return (
     <View>
-      <View style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}>
+      <TouchableOpacity
+        disabled={!props.onPress}
+        onPress={props.onPress}
+        style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}
+      >
         <View style={tailwind('flex-row py-3 items-center justify-between')}>
           <IconSet name={props.icon} size={20} style={tailwind('text-white')}></IconSet>
           <Text style={tailwind('text-white text-base ml-2')}>{props.title}</Text>
         </View>
         <View>{props.children}</View>
-      </View>
+      </TouchableOpacity>
       {props.description && (
         <View style={tailwind('px-6 mt-2 mb-6')}>
           <Text style={tailwind('text-sm text-zinc-400')}>{props.description}</Text>

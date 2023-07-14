@@ -4,7 +4,7 @@ import { useTailwind } from 'tailwind-rn';
 
 import { StackHeaderClose } from '../../../components/StackHeader';
 
-export default function KeySetupLayout(): ReactElement {
+export default function KeySettingLayout(): ReactElement {
   const tailwind = useTailwind();
   const router = useRouter();
 
@@ -16,7 +16,7 @@ export default function KeySetupLayout(): ReactElement {
         headerRight: () => (
           <StackHeaderClose
             onPress={() => {
-              router.push('/');
+              router.push('/tabs/settings');
             }}
           />
         ),

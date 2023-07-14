@@ -76,6 +76,14 @@ export default function DesignSystemPage(): ReactElement {
               <Text style={tailwind('text-sm text-zinc-200 font-mono')}>Font-Mono</Text>
               <Code>text-sm text-zinc-200 font-mono</Code>
             </View>
+            <View style={tailwind('mt-2')}>
+              <Text style={tailwind('text-base font-bold text-red-600')}>Error, something went wrong.</Text>
+              <Code>text-base font-bold text-red-600</Code>
+            </View>
+            <View style={tailwind('mt-2')}>
+              <Text style={tailwind('text-base font-bold text-green-600')}>Success!</Text>
+              <Code>text-base font-bold text-green-600</Code>
+            </View>
           </Section>
 
           <Section title="ICONS">
@@ -181,7 +189,7 @@ export default function DesignSystemPage(): ReactElement {
                     <View style={tailwind('bg-zinc-950 opacity-60 w-full h-px')} />
                   </View>
                   <ListViewItem title="Item 2" subtitle="" icon="infocirlceo" />
-                  <Text style={tailwind('pt-8 pb-2 px-6 text-white bg-zinc-950')}>SECTION</Text>
+                  <Text style={tailwind('pt-8 pb-2 px-6 text-zinc-300 bg-zinc-950')}>SECTION</Text>
                   <ListViewItem title="Item 3" subtitle="" icon="retweet" />
                 </View>
               );

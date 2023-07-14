@@ -77,7 +77,10 @@ function AppContainer(): ReactElement | null {
             >
               <Stack.Screen name="index" redirect />
               <Stack.Screen name="tabs" options={{ headerShown: false }} />
-              <Stack.Screen name="keys/setup" options={{ headerShown: false }} />
+
+              {/* For key related screens, they're set to full screen modal to force closing of modal to be a more deliberate action. */}
+              <Stack.Screen name="keys/setup" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
+              <Stack.Screen name="keys/settings" options={{ headerShown: false, presentation: 'fullScreenModal' }} />
             </Stack>
           </ExternalLinkProvider>
         </HapticFeedbackProvider>
