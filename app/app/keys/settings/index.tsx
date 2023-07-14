@@ -1,5 +1,5 @@
 import { Stack, useRouter } from 'expo-router';
-import { ReactElement } from 'react';
+import { PropsWithChildren, ReactElement } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
@@ -107,7 +107,11 @@ export function KeychainSettingRowPasscode(): ReactElement {
         await router.push('keys/settings/passcode');
       }}
     >
-      <Text style={tailwind('text-lg h-6 font-medium text-zinc-200 opacity-60')}>******</Text>
+      <View style={tailwind('flex-row')}>
+        {[0, 1, 2, 3, 4, 5].map(() => (
+          <View style={tailwind('w-1.5 h-1.5 bg-zinc-200 rounded-full ml-1')} />
+        ))}
+      </View>
     </KeychainSettingRow>
   );
 }
@@ -121,13 +125,14 @@ export function KeychainSettingRowDivider(): ReactElement {
   );
 }
 
-function KeychainSettingRow(props: {
-  title: string;
-  icon: IconSetName;
-  description?: string;
-  children: ReactElement;
-  onPress?: () => void;
-}): ReactElement {
+function KeychainSettingRow(
+  props: PropsWithChildren<{
+    title: string;
+    icon: IconSetName;
+    description?: string;
+    onPress?: () => void;
+  }>,
+): ReactElement {
   const tailwind = useTailwind();
   return (
     <View>
