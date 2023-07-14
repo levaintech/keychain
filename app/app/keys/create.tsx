@@ -1,9 +1,10 @@
 import { NotificationFeedbackType } from 'expo-haptics';
+import { Stack } from 'expo-router';
 import { ReactElement, useState } from 'react';
 import { ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-import { ModalStackScreen } from '../_components/ModalStackScreen';
+import { PrimaryActionButton } from '../../components/Button';
 import { useHaptic } from '../HapticFeedback';
 import { IconSet } from '../IconSet';
 
@@ -15,7 +16,7 @@ export default function KeysCreatePage(): ReactElement {
 
   return (
     <>
-      <ModalStackScreen
+      <Stack.Screen
         options={{
           title: 'Keychain',
         }}
@@ -73,16 +74,9 @@ export default function KeysCreatePage(): ReactElement {
             Keys are generated from the mnemonic phrase stored in your Levain Keychain.
           </Text>
 
-          <TouchableOpacity
-            onPress={async () => {
-              await haptic.notificationAsync(NotificationFeedbackType.Success);
-            }}
-            style={tailwind('rounded-full bg-zinc-200 px-8 py-3 w-full')}
-          >
-            <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>
-              Generate {Number.parseInt(input, 10) > 1 ? `${input} Keys` : '1 Key'}
-            </Text>
-          </TouchableOpacity>
+          <PrimaryActionButton onPress={async () => {}}>
+            Generate {Number.parseInt(input, 10) > 1 ? `${input} Keys` : '1 Key'}
+          </PrimaryActionButton>
         </View>
       </ScrollView>
     </>

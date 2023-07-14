@@ -26,7 +26,7 @@ async function postCSS(watch) {
   const processor = postcss([
     tailwind({
       corePlugins: require('tailwind-rn/unsupported-core-plugins'),
-      content: ['./app/**/*.{js,jsx,ts,tsx}'],
+      content: ['./app/**/*.{js,jsx,ts,tsx}', './components/**/*.{js,jsx,ts,tsx}'],
       theme: {
         fontFamily: {
           mono: ['JetBrainsMono'],

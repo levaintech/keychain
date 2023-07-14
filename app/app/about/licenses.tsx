@@ -1,11 +1,10 @@
+import { Stack } from 'expo-router';
 import { ReactElement } from 'react';
-
-import { ModalStackScreen } from '../_components/ModalStackScreen';
 
 export default function LicensesPage(): ReactElement {
   return (
     <>
-      <ModalStackScreen
+      <Stack.Screen
         options={{
           title: 'Licenses',
         }}
