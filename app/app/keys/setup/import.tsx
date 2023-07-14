@@ -30,6 +30,11 @@ export default function ImportPage(): ReactElement {
               value={sentence}
               style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 h-48')}
             />
+            <Text style={tailwind('text-sm text-zinc-500 mx-6 mt-2')}>
+              Import your mnemonic phrase to recover your wallet. Always procure your mnemonic phrase from a reliable
+              source that ensures a high degree of entropy. Utilizing an untrusted source might lead to theft of your
+              funds. It's not advisable to choose a mnemonic phrase randomly on your own due to inherent bias.
+            </Text>
           </View>
 
           <View style={tailwind('mx-6')}>

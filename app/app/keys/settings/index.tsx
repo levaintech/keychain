@@ -38,7 +38,7 @@ export function KeychainSettingRowBip32Scheme(): ReactElement {
   const tailwind = useTailwind();
 
   return (
-    <KeychainSettingRow title="BIP32 Derivation Scheme" icon="bars">
+    <KeychainSettingRow title="BIP32 Derivation Method" icon="bars">
       <Text style={tailwind('text-base text-zinc-200 opacity-60')}>m/0'/0'/0'/0'/i'</Text>
     </KeychainSettingRow>
   );
@@ -52,7 +52,7 @@ export function KeychainSettingRowBip32Hardened(): ReactElement {
     <KeychainSettingRow
       title="BIP32 Hardened"
       icon="Safety"
-      description="Restrict keychain to hardened derivation paths. This secure your keychain by preventing child keys from being used to derive the parent key."
+      description="Limit the keychain to hardened derivation paths. This enhances the security of your keychain by preventing the use of child keys to derive the parent key."
       onPress={() => haptic.notificationAsync(NotificationFeedbackType.Error)}
     >
       <Switch
@@ -75,7 +75,7 @@ export function KeychainSettingRowBip39Language(): ReactElement {
     <KeychainSettingRow
       title="BIP39 Language"
       icon="infocirlceo"
-      description="To ensure your keychain is compatible with other wallets, we only allow the default English wordlist."
+      description="To maintain compatibility of your keychain with other wallets, we only permit the use of the default English wordlist."
     >
       <Text style={tailwind('text-base text-zinc-200 opacity-60')}>English</Text>
     </KeychainSettingRow>
@@ -101,7 +101,7 @@ export function KeychainSettingRowPasscode(): ReactElement {
     <KeychainSettingRow
       title="Keychain Passcode"
       icon="lock1"
-      description="This is not the same as your BIP39 passphrase. This password is used to decrypt the keychain from the device's secure keystore after the app is unlocked."
+      description="This should not be confused with the BIP39 passphrase. This passcode is utilized to decrypt the keychain from the device's secure keystore once the app has been unlocked."
       onPress={async () => {
         await haptic.selectionAsync();
         await router.push('keys/settings/passcode');

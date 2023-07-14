@@ -43,8 +43,9 @@ export default function GeneratePage(): ReactElement {
               style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 h-48')}
             />
             <Text style={tailwind('text-sm text-zinc-500 mx-6 mt-2')}>
-              Write down your mnemonic phrase and keep it in a safe place. You will need it to recover your wallet. You
-              will be asked to confirm your mnemonic phrase in the next step.
+              Record your mnemonic phrase and store it securely. It's essential for wallet recovery. This mnemonic
+              phrase is generated using a cryptographically secure element within your device. In the following step,
+              you will be asked to verify this mnemonic phrase.
             </Text>
           </View>
 

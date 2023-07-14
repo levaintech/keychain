@@ -74,9 +74,8 @@ export default function SetupPasscodePage(): ReactElement {
             />
 
             <Text style={tailwind('mt-6 text-sm text-zinc-400 text-center')}>
-              Enter a 6-digit passcode to protect your keychain. You will be asked to enter this passcode when you open
-              the app or when you make a transaction. This passcode is not the same as your device passcode or BIP39
-              paraphrase.
+              Set up a 6-digit passcode to secure your keychain. This passcode will be required when you open the app or
+              make a transaction. Note that this passcode is different from your device passcode or BIP39 passphrase.
             </Text>
           </View>
 

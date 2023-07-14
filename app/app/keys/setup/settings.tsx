@@ -29,8 +29,9 @@ export default function SetupSettingsPage(): ReactElement {
         <ScrollView contentContainerStyle={tailwind('py-6 flex-grow justify-between')}>
           <View>
             <Text style={tailwind('text-sm text-zinc-400 mx-6 mb-4')}>
-              You can't edit these settings, they're used to derive your private keys from your mnemonic phrase. We use
-              BIP32 and BIP39 standards set to best practices by default to ensure your security.
+              For security reasons, these settings cannot be edited. They are used to generate your private keys from
+              your mnemonic phrase. By default, we employ the BIP32 and BIP39 standards, adhering to best practices to
+              ensure your security.
             </Text>
             <KeychainSettingRowBip32Scheme />
             <KeychainSettingRowDivider />
