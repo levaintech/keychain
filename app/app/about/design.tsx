@@ -1,10 +1,10 @@
-import { NotificationFeedbackType } from 'expo-haptics';
+import { Stack } from 'expo-router';
 import { ReactElement, ReactNode } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View, ViewStyle } from 'react-native';
 import { StyleProp } from 'react-native/Libraries/StyleSheet/StyleSheet';
 import { useTailwind } from 'tailwind-rn';
 
-import { ModalStackScreen } from '../_components/ModalStackScreen';
+import { PrimaryActionButton } from '../../components/Button';
 import { useHaptic } from '../HapticFeedback';
 import { IconSet, IconSetName } from '../IconSet';
 
@@ -14,7 +14,7 @@ export default function DesignSystemPage(): ReactElement {
 
   return (
     <>
-      <ModalStackScreen
+      <Stack.Screen
         options={{
           title: 'Design System',
         }}
@@ -69,8 +69,8 @@ export default function DesignSystemPage(): ReactElement {
               <Code>text-base text-zinc-200</Code>
             </View>
             <View style={tailwind('mt-2')}>
-              <Text style={tailwind('text-sm text-zinc-200')}>Caption</Text>
-              <Code>text-sm text-zinc-200</Code>
+              <Text style={tailwind('text-sm text-zinc-400')}>Caption</Text>
+              <Code>text-sm text-zinc-400</Code>
             </View>
             <View style={tailwind('mt-2')}>
               <Text style={tailwind('text-sm text-zinc-200 font-mono')}>Font-Mono</Text>
@@ -99,14 +99,7 @@ export default function DesignSystemPage(): ReactElement {
 
           <Section title="BUTTONS">
             <View style={tailwind('flex-row')}>
-              <TouchableOpacity
-                onPress={async () => {
-                  await haptic.notificationAsync(NotificationFeedbackType.Success);
-                }}
-                style={tailwind('rounded-full bg-zinc-200 px-8 py-3 w-full')}
-              >
-                <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>PRIMARY ACTION</Text>
-              </TouchableOpacity>
+              <PrimaryActionButton onPress={async () => {}}>PRIMARY ACTION</PrimaryActionButton>
             </View>
 
             <View style={tailwind('flex-row justify-end mt-4')}>

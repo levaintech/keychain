@@ -39,7 +39,7 @@ function KeychainOnboarding(): ReactElement {
               }}
               icon="calculator"
               title="Generate"
-              caption="A new set mnemonics generated using your device's random number generator."
+              caption="A new set mnemonics generated using your device's secure element."
             />
             <CreateButton
               onPress={async () => {
@@ -69,7 +69,7 @@ function KeychainOnboarding(): ReactElement {
           </View>
           <View style={tailwind('shrink flex-col')}>
             <Text style={tailwind('text-lg font-bold text-zinc-200')}>{props.title}</Text>
-            <Text style={tailwind('text-sm text-zinc-200 flex-1 w-full')}>{props.caption}</Text>
+            <Text style={tailwind('text-sm text-zinc-400 flex-1 w-full')}>{props.caption}</Text>
           </View>
         </View>
       </TouchableOpacity>

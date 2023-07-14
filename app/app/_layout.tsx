@@ -7,6 +7,7 @@ import { Platform, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { TailwindProvider, useTailwind } from 'tailwind-rn';
 
+import { StackHeaderClose } from '../components/StackHeader';
 import utilities from '../tailwind.json';
 import { ExternalLinkProvider } from './ExternalLinkProvider';
 import { HapticFeedbackProvider } from './HapticFeedback';
@@ -38,6 +39,7 @@ function WebContainer(): ReactElement {
 }
 
 function AppContainer(): ReactElement | null {
+  const tailwind = useTailwind();
   const [loaded, error] = useFonts({
     /* eslint-disable global-require */
     AntDesign: require('../assets/fonts/AntDesign.ttf'),
@@ -66,7 +68,11 @@ function AppContainer(): ReactElement | null {
           <ExternalLinkProvider>
             <Stack
               screenOptions={{
+                headerShown: true,
                 presentation: 'modal',
+                headerStyle: tailwind('bg-zinc-900'),
+                headerRight: () => <StackHeaderClose />,
+                headerLeft: () => null,
               }}
             >
               <Stack.Screen name="index" redirect />
