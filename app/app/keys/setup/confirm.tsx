@@ -1,14 +1,13 @@
 import { router, Stack } from 'expo-router';
 import { ReactElement, useState } from 'react';
-import { SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
+import { PrimaryActionButton } from '../../../components/Button';
 import { StackHeaderBack } from '../../../components/StackHeader';
-import { useHaptic } from '../../HapticFeedback';
 
 export default function SetupConfirmPage(): ReactElement {
   const tailwind = useTailwind();
-  const haptic = useHaptic();
   const [sentence, setSentence] = useState('');
 
   return (
@@ -33,9 +32,8 @@ export default function SetupConfirmPage(): ReactElement {
           />
 
           <View style={tailwind('m-6')}>
-            <TouchableOpacity
+            <PrimaryActionButton
               onPress={async () => {
-                await haptic.selectionAsync();
                 await router.push({
                   pathname: 'keys/setup/passcode',
                   params: {
@@ -43,10 +41,9 @@ export default function SetupConfirmPage(): ReactElement {
                   },
                 });
               }}
-              style={tailwind('rounded-full bg-zinc-200 px-8 py-3 w-full')}
             >
-              <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>Continue</Text>
-            </TouchableOpacity>
+              Continue
+            </PrimaryActionButton>
           </View>
         </ScrollView>
       </SafeAreaView>

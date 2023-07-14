@@ -1,16 +1,14 @@
-import classNames from 'classnames';
 import { router, Stack } from 'expo-router';
 import { ReactElement, useState } from 'react';
-import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
+import { PrimaryActionButton } from '../../../components/Button';
 import { PasscodeInput } from '../../../components/PasscodeInput';
 import { StackHeaderBack } from '../../../components/StackHeader';
-import { useHaptic } from '../../HapticFeedback';
 
 export default function SetupPasscodePage(): ReactElement {
   const tailwind = useTailwind();
-  const haptic = useHaptic();
   const [passcode, setPasscode] = useState('');
 
   return (
@@ -37,10 +35,9 @@ export default function SetupPasscodePage(): ReactElement {
           </View>
 
           <View style={tailwind('')}>
-            <TouchableOpacity
+            <PrimaryActionButton
               disabled={passcode.length < 6}
               onPress={async () => {
-                await haptic.selectionAsync();
                 await router.push({
                   pathname: 'keys/setup/confirm',
                   params: {
@@ -48,15 +45,9 @@ export default function SetupPasscodePage(): ReactElement {
                   },
                 });
               }}
-              style={tailwind(
-                classNames('rounded-full px-8 py-3 w-full', {
-                  'bg-zinc-600': passcode.length < 6,
-                  'bg-zinc-200': passcode.length === 6,
-                }),
-              )}
             >
-              <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>Continue</Text>
-            </TouchableOpacity>
+              Continue
+            </PrimaryActionButton>
           </View>
         </ScrollView>
       </SafeAreaView>

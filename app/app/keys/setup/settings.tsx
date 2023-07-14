@@ -1,10 +1,10 @@
 import { router, Stack } from 'expo-router';
 import { ReactElement } from 'react';
-import { SafeAreaView, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, ScrollView, Text, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
+import { PrimaryActionButton } from '../../../components/Button';
 import { StackHeaderBack } from '../../../components/StackHeader';
-import { useHaptic } from '../../HapticFeedback';
 import {
   KeychainSettingRowBip32Hardened,
   KeychainSettingRowBip32Scheme,
@@ -15,7 +15,6 @@ import {
 
 export default function SetupSettingsPage(): ReactElement {
   const tailwind = useTailwind();
-  const haptic = useHaptic();
 
   return (
     <>
@@ -40,15 +39,13 @@ export default function SetupSettingsPage(): ReactElement {
           <KeychainSettingRowBip39Language />
 
           <View style={tailwind('m-6')}>
-            <TouchableOpacity
+            <PrimaryActionButton
               onPress={async () => {
-                await haptic.selectionAsync();
                 await router.push('/');
               }}
-              style={tailwind('rounded-full bg-zinc-200 px-8 py-3 w-full')}
             >
-              <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>Continue</Text>
-            </TouchableOpacity>
+              Continue
+            </PrimaryActionButton>
           </View>
         </ScrollView>
       </SafeAreaView>

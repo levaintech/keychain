@@ -3,7 +3,7 @@ import { ReactElement } from 'react';
 import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-import { useHaptic } from '../HapticFeedback';
+import { NotificationFeedbackType, useHaptic } from '../HapticFeedback';
 import { IconSet, IconSetName } from '../IconSet';
 
 export default function KeySettingsPage(): ReactElement {

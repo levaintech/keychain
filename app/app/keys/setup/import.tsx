@@ -1,13 +1,12 @@
 import { router, Stack } from 'expo-router';
 import { ReactElement, useState } from 'react';
-import { SafeAreaView, ScrollView, Text, TextInput, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, ScrollView, Text, TextInput, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
-import { useHaptic } from '../../HapticFeedback';
+import { PrimaryActionButton } from '../../../components/Button';
 
 export default function ImportPage(): ReactElement {
   const tailwind = useTailwind();
-  const haptic = useHaptic();
   const [sentence, setSentence] = useState(
     'abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon abandon art',
   );
@@ -32,9 +31,8 @@ export default function ImportPage(): ReactElement {
           />
 
           <View style={tailwind('m-6')}>
-            <TouchableOpacity
+            <PrimaryActionButton
               onPress={async () => {
-                await haptic.selectionAsync();
                 await router.push({
                   pathname: 'keys/setup/confirm',
                   params: {
@@ -42,10 +40,9 @@ export default function ImportPage(): ReactElement {
                   },
                 });
               }}
-              style={tailwind('rounded-full bg-zinc-200 px-8 py-3 w-full')}
             >
-              <Text style={tailwind('text-zinc-800 font-bold text-lg text-center')}>Continue</Text>
-            </TouchableOpacity>
+              Continue
+            </PrimaryActionButton>
           </View>
         </ScrollView>
       </SafeAreaView>
