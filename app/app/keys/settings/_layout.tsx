@@ -13,6 +13,7 @@ export default function KeySettingLayout(): ReactElement {
       screenOptions={{
         headerShown: true,
         headerStyle: tailwind('bg-zinc-900'),
+        headerLeft: () => null,
         headerRight: () => (
           <StackHeaderClose
             onPress={() => {

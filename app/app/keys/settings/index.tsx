@@ -108,8 +108,8 @@ export function KeychainSettingRowPasscode(): ReactElement {
       }}
     >
       <View style={tailwind('flex-row')}>
-        {[0, 1, 2, 3, 4, 5].map(() => (
-          <View style={tailwind('w-1.5 h-1.5 bg-zinc-200 rounded-full ml-1')} />
+        {[0, 1, 2, 3, 4, 5].map((index) => (
+          <View key={index} style={tailwind('w-1.5 h-1.5 bg-zinc-200 rounded-full ml-1')} />
         ))}
       </View>
     </KeychainSettingRow>

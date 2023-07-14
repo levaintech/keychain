@@ -40,7 +40,7 @@ export default function GeneratePage(): ReactElement {
               multiline
               secureTextEntry
               value={sentence}
-              style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 rounded h-48')}
+              style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 h-48')}
             />
             <Text style={tailwind('text-sm text-zinc-500 mx-6 mt-2')}>
               Write down your mnemonic phrase and keep it in a safe place. You will need it to recover your wallet. You

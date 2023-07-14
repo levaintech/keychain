@@ -28,7 +28,7 @@ export default function ImportPage(): ReactElement {
               onChangeText={(text) => setSentence(text)}
               placeholder="Enter your mnemonic phrase here"
               value={sentence}
-              style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 rounded h-48')}
+              style={tailwind('px-6 py-2 text-base text-zinc-200 bg-zinc-900 h-48')}
             />
           </View>
 
