@@ -23,9 +23,7 @@ export default function KeySettingsPage(): ReactElement {
           <KeychainSettingRowPasscode />
           <Text style={tailwind('py-3 px-6 text-zinc-300 bg-zinc-950')}>BIP32 & BIP39</Text>
           <KeychainSettingRowBip32Scheme />
-          <KeychainSettingRowDivider />
           <KeychainSettingRowMaxLength />
-          <KeychainSettingRowDivider />
           <KeychainSettingRowBip32Hardened />
           <KeychainSettingRowBip39Language />
         </ScrollView>
@@ -116,21 +114,13 @@ export function KeychainSettingRowPasscode(): ReactElement {
   );
 }
 
-export function KeychainSettingRowDivider(): ReactElement {
-  const tailwind = useTailwind();
-  return (
-    <View style={tailwind('pl-12 bg-zinc-900')}>
-      <View style={tailwind('bg-zinc-950 opacity-60 w-full h-px')} />
-    </View>
-  );
-}
-
 function KeychainSettingRow(
   props: PropsWithChildren<{
     title: string;
     icon: IconSetName;
     description?: string;
     onPress?: () => void;
+    divider?: boolean;
   }>,
 ): ReactElement {
   const tailwind = useTailwind();
@@ -147,10 +137,16 @@ function KeychainSettingRow(
         </View>
         <View>{props.children}</View>
       </TouchableOpacity>
-      {props.description && (
-        <View style={tailwind('px-6 mt-2 mb-6')}>
+      {props.description ? (
+        <View style={tailwind('px-6 pt-3 pb-6 bg-zinc-900/20')}>
           <Text style={tailwind('text-sm text-zinc-400')}>{props.description}</Text>
         </View>
+      ) : (
+        (props.divider ?? true) && (
+          <View style={tailwind('pl-12 bg-zinc-900')}>
+            <View style={tailwind('bg-zinc-950 opacity-60 w-full h-px')} />
+          </View>
+        )
       )}
     </View>
   );

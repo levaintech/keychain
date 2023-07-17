@@ -1,14 +1,70 @@
 import { router, Stack } from 'expo-router';
 import { PropsWithChildren, ReactElement, useState } from 'react';
-import { SafeAreaView, ScrollView, Switch, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, Switch, Text, TouchableOpacity, View } from 'react-native';
 import { useTailwind } from 'tailwind-rn';
 
 import { PrimaryActionButton } from '../../../components/Button';
 import { StackHeaderBack } from '../../../components/StackHeader';
 import { NotificationFeedbackType, useHaptic } from '../../HapticFeedback';
-import { IconSet } from '../../IconSet';
+import { IconSet, IconSetName } from '../../IconSet';
 
-const confirmations = [
+export default function SetupSettingsPage(): ReactElement {
+  const tailwind = useTailwind();
+  const haptic = useHaptic();
+  const [confirmed, setConfirmed] = useState(Object.fromEntries(acknowledgements.map((_, index) => [index, false])));
+
+  return (
+    <>
+      <Stack.Screen
+        options={{
+          title: 'Keychain Security',
+          headerLeft: () => <StackHeaderBack />,
+        }}
+      />
+
+      <SafeAreaView style={tailwind('flex-1 bg-zinc-950')}>
+        <ScrollView contentContainerStyle={tailwind('flex-grow justify-between')}>
+          <View>
+            <KeychainSettingHeader
+              icon="Safety"
+              title="Security Acknowledgements"
+              description="For your security and safety, please confirm you understand the following."
+            />
+            {acknowledgements.map((confirm, index) => (
+              <View key={index}>
+                <KeychainAcknowledgementRow
+                  title={confirm.title}
+                  description={confirm.description}
+                  value={confirmed[index]}
+                  onPress={async () => {
+                    await haptic.notificationAsync(NotificationFeedbackType.Success);
+                    setConfirmed({
+                      ...confirmed,
+                      [index]: !confirmed[index],
+                    });
+                  }}
+                />
+              </View>
+            ))}
+          </View>
+
+          <View style={tailwind('m-6')}>
+            <PrimaryActionButton
+              disabled={Object.values(confirmed).some((value) => !value)}
+              onPress={async () => {
+                await router.push('/');
+              }}
+            >
+              Continue
+            </PrimaryActionButton>
+          </View>
+        </ScrollView>
+      </SafeAreaView>
+    </>
+  );
+}
+
+const acknowledgements = [
   {
     title: 'Multiple Secure Backups',
     description:
@@ -41,68 +97,23 @@ const confirmations = [
   },
 ];
 
-export default function KeychainSafetyPage(): ReactElement {
-  const haptic = useHaptic();
+function KeychainSettingHeader(props: { icon: IconSetName; title: string; description: string }): ReactElement {
   const tailwind = useTailwind();
-  const [confirmed, setConfirmed] = useState(Object.fromEntries(confirmations.map((_, index) => [index, false])));
 
   return (
-    <>
-      <Stack.Screen
-        options={{
-          title: 'Keychain Safety',
-          headerLeft: () => <StackHeaderBack />,
-        }}
-      />
-
-      <SafeAreaView style={tailwind('flex-1 bg-zinc-950')}>
-        <ScrollView contentContainerStyle={tailwind('py-6 flex-grow justify-between')}>
-          <View style={tailwind('')}>
-            <View style={tailwind('flex-row mx-6 items-center')}>
-              <IconSet name="Safety" size={24} style={tailwind('text-white')} />
-              <Text style={tailwind('text-lg font-bold text-zinc-200 ml-2')}>Security & Safety Acknowledgements</Text>
-            </View>
-            <View style={tailwind('mx-6 mt-1 mb-3')}>
-              <Text style={tailwind('text-sm text-zinc-400')}>
-                For your security and safety, please confirm the following.
-              </Text>
-            </View>
-            {confirmations.map((confirm, index) => (
-              <View key={index}>
-                <KeychainSafetyRow
-                  title={confirm.title}
-                  description={confirm.description}
-                  value={confirmed[index]}
-                  onPress={async () => {
-                    await haptic.notificationAsync(NotificationFeedbackType.Success);
-                    setConfirmed({
-                      ...confirmed,
-                      [index]: !confirmed[index],
-                    });
-                  }}
-                />
-                {index !== confirmations.length - 1 && <KeychainSafetyDivider />}
-              </View>
-            ))}
-          </View>
-
-          <View style={tailwind('mx-6 mt-6')}>
-            <PrimaryActionButton
-              disabled={Object.values(confirmed).some((value) => !value)}
-              onPress={async () => {
-                await router.push('keys/setup/settings');
-              }}
-            >
-              Continue
-            </PrimaryActionButton>
-          </View>
-        </ScrollView>
-      </SafeAreaView>
-    </>
+    <View style={tailwind('py-4')}>
+      <View style={tailwind('flex-row mx-6 items-center')}>
+        <IconSet name={props.icon} size={24} style={tailwind('text-white')} />
+        <Text style={tailwind('text-lg font-bold text-zinc-200 ml-2')}>{props.title}</Text>
+      </View>
+      <View style={tailwind('mx-6 mt-1')}>
+        <Text style={tailwind('text-sm text-zinc-400')}>{props.description}</Text>
+      </View>
+    </View>
   );
 }
 
-function KeychainSafetyRow(
+function KeychainAcknowledgementRow(
   props: PropsWithChildren<{
     title: string;
     description: string;
@@ -113,31 +124,29 @@ function KeychainSafetyRow(
   const tailwind = useTailwind();
 
   return (
-    <View style={tailwind('px-6 bg-zinc-900 flex-row items-center justify-between')}>
-      <View style={tailwind('py-3 shrink')}>
-        <View style={tailwind('mr-3')}>
-          <Text style={tailwind('text-base font-bold text-zinc-200')}>{props.title}</Text>
-          <Text style={tailwind('mt-[2px] text-sm text-zinc-400')}>{props.description}</Text>
+    <>
+      <TouchableOpacity
+        style={tailwind('px-6 bg-zinc-900/60 flex-row items-center justify-between')}
+        onPress={props.onPress}
+      >
+        <View style={tailwind('py-3 shrink')}>
+          <View style={tailwind('mr-3')}>
+            <Text style={tailwind('text-base font-bold text-zinc-200')}>{props.title}</Text>
+            <Text style={tailwind('mt-[2px] text-sm text-zinc-400')}>{props.description}</Text>
+          </View>
         </View>
+        <Switch
+          value={props.value}
+          thumbColor={tailwind('text-zinc-200').color as any}
+          trackColor={{
+            false: tailwind('text-teal-800').color as any,
+            true: tailwind('text-teal-800').color as any,
+          }}
+        />
+      </TouchableOpacity>
+      <View style={tailwind('pl-6 bg-zinc-900')}>
+        <View style={tailwind('bg-zinc-950 opacity-60 w-full h-px')} />
       </View>
-      <Switch
-        value={props.value}
-        onValueChange={props.onPress}
-        thumbColor={tailwind('text-zinc-200').color as any}
-        trackColor={{
-          false: tailwind('text-teal-800').color as any,
-          true: tailwind('text-teal-800').color as any,
-        }}
-      />
-    </View>
-  );
-}
-
-function KeychainSafetyDivider(): ReactElement {
-  const tailwind = useTailwind();
-  return (
-    <View style={tailwind('pl-6 bg-zinc-900')}>
-      <View style={tailwind('bg-zinc-950 opacity-60 w-full h-px')} />
-    </View>
+    </>
   );
 }
