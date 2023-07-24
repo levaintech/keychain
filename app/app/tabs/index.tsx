@@ -111,39 +111,42 @@ function KeychainListView(): ReactElement {
       />
     </>
   );
+}
 
-  function KeychainKeyRow(props: { data: number }): ReactElement {
-    const colors = [
-      'bg-red-950',
-      'bg-yellow-950',
-      'bg-lime-950',
-      'bg-teal-950',
-      'bg-sky-950',
-      'bg-blue-950',
-      'bg-violet-950',
-      'bg-fuchsia-950',
-    ];
+function KeychainKeyRow(props: { data: number }): ReactElement {
+  const tailwind = useTailwind();
+  const haptic = useHaptic();
 
-    return (
-      <TouchableOpacity
-        onPress={async () => {
-          await haptic.selectionAsync();
+  const colors = [
+    'bg-red-950',
+    'bg-yellow-950',
+    'bg-lime-950',
+    'bg-teal-950',
+    'bg-sky-950',
+    'bg-blue-950',
+    'bg-violet-950',
+    'bg-fuchsia-950',
+  ];
+
+  return (
+    <TouchableOpacity
+      onPress={async () => {
+        await haptic.selectionAsync();
+      }}
+      style={tailwind('px-4 py-2 flex-row items-center')}
+    >
+      <View
+        style={{
+          ...tailwind('bg-zinc-900 rounded-sm mr-3 bg-red-950 p-3'),
+          ...tailwind(colors[props.data % Object.keys(colors).length]),
         }}
-        style={tailwind('px-4 py-2 flex-row items-center')}
       >
-        <View
-          style={{
-            ...tailwind('bg-zinc-900 rounded-sm mr-3 bg-red-950 p-3'),
-            ...tailwind(colors[props.data % Object.keys(colors).length]),
-          }}
-        >
-          <IconSet name="key" size={28} style={tailwind('text-zinc-200')} />
-        </View>
-        <View>
-          <Text style={tailwind('text-lg font-bold text-zinc-200')}>Key #{props.data}</Text>
-          <Text style={tailwind('text-sm text-zinc-200 font-mono')}>4c8926b4-8a4e15fc</Text>
-        </View>
-      </TouchableOpacity>
-    );
-  }
+        <IconSet name="key" size={28} style={tailwind('text-zinc-200')} />
+      </View>
+      <View>
+        <Text style={tailwind('text-lg font-bold text-zinc-200')}>Key #{props.data}</Text>
+        <Text style={tailwind('text-sm text-zinc-200 font-mono')}>4c8926b4-8a4e15fc</Text>
+      </View>
+    </TouchableOpacity>
+  );
 }
