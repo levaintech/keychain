@@ -31,7 +31,7 @@
   "dependencies": {
     "@babel/core": "^7.20.0",
     "@expo/vector-icons": "^13.0.0",
-    "@gorhom/bottom-sheet": "^4.4.7",
+    "@gorhom/bottom-sheet": "^4.5.0",
     "@react-native-async-storage/async-storage": "1.18.2",
     "expo": "^49.0.7",
     "expo-checkbox": "~2.4.0",
