@@ -54,7 +54,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@levain-keychain/eslint-config": "0.0.0",
-    "@parcel/watcher": "^2.2.0",
+    "@parcel/watcher": "^2.4.1",
     "@playwright/test": "^1.38.1",
     "@types/react": "~18.2.14",
     "@types/react-native": "^0.72.2",
